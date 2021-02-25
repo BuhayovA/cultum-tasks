@@ -7,7 +7,7 @@ import * as U from '@md-utils';
 // types
 import { Planet, GetPlanetResponse, GetPlanetVariables } from '@md-sw-planet/queries/planet/types';
 import { ClientError } from '@md-utils/errors/custom';
-// mock
+// query
 import { GET_PLANET_QUERY } from '@md-sw-planet/queries/planet';
 
 interface Context {
@@ -26,7 +26,7 @@ const PlanetAPIContext = React.createContext<Context>({
 
 const PlanetAPIContextProvider: React.FC = ({ children }) => {
   const { query } = useRouter();
-
+  //make
   const { data, loading, error, refetch } = useQuery<GetPlanetResponse, GetPlanetVariables>(GET_PLANET_QUERY, {
     variables: { id: query.id as string },
     skip: !query.id
