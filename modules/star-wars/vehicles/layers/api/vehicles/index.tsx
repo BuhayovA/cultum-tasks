@@ -26,9 +26,6 @@ const VehiclesAPIContextProvider: React.FC = ({ children }) => {
   const { data, loading, refetch, error } = useQuery<GetVehiclesResponse, GetVehiclesVariables>(GET_VEHICLES_QUERY, {
     variables: { first: 6 }
   });
-  const egor = useQuery<GetVehiclesResponse, GetVehiclesVariables>(GET_VEHICLES_QUERY, {
-    variables: { first: 6 }
-  });
 
   return (
     <VehiclesAPIContext.Provider

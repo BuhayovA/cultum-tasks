@@ -8,7 +8,7 @@ const VehicleContainer = () => {
   return (
     <VehicleAPIContextProvider>
       <VehicleBLContextProvider>
-          <VehiclePresentation/>
+        <VehiclePresentation />
       </VehicleBLContextProvider>
     </VehicleAPIContextProvider>
   );

@@ -1,7 +1,6 @@
 import React from 'react';
 //views
-import {Wrapper,DWrapper, ImgWrapper,Image, TitleWrapper} from './views'
-
+import { Wrapper, DWrapper, ImgWrapper, Image, TitleWrapper } from './views';
 
 interface Props {
   id: string;
@@ -10,19 +9,19 @@ interface Props {
   maxAtmospheringSpeed: number;
 }
 
-const VehicleInfo: React.FC<Props> = ({id , name, maxAtmospheringSpeed, passengers}) => {
+const VehicleInfo: React.FC<Props> = ({ id, name, maxAtmospheringSpeed, passengers }) => {
   return (
     <>
       <TitleWrapper>{name}</TitleWrapper>
-    <Wrapper>
-      <ImgWrapper>
-        <Image src='/static/images/vehicles.png'/>
-      </ImgWrapper>
-      <DWrapper>
-        <p>Max Atmosphering Speed: {maxAtmospheringSpeed}</p>
-        <p>Count passengers: {passengers}</p>
-      </DWrapper>
-    </Wrapper>
+      <Wrapper>
+        <ImgWrapper>
+          <Image src='/static/images/vehicles.png' />
+        </ImgWrapper>
+        <DWrapper>
+          <p>Max Atmosphering Speed: {maxAtmospheringSpeed}</p>
+          <p>Count passengers: {passengers}</p>
+        </DWrapper>
+      </Wrapper>
     </>
   );
 };

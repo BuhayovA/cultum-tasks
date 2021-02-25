@@ -1,8 +1,11 @@
 import React from 'react';
+//hook(s)
 import { useQuery } from '@apollo/client';
-import { GET_VEHICLE_QUERY } from '@md-star-wars/vehicle/queries/vehicle';
 import { useRouter } from 'next/router';
-import { GetVehicle } from '@md-star-wars/vehicle/queries/vehicle/type';
+//types
+import { GetVehicle, GetVehicleResponse, GetVehicleVariables } from '@md-star-wars/vehicle/queries/vehicle/type';
+import { GET_VEHICLE_QUERY } from '@md-star-wars/vehicle/queries/vehicle';
+//utils
 import { ClientError } from '@md-utils/errors/custom';
 import * as U from '@md-utils';
 
@@ -15,21 +18,23 @@ interface Context {
 export const VehicleAPIContext = React.createContext<Context>({
   vehicle: undefined,
   isLoading: true,
-  error: undefined,
-})
+  error: undefined
+});
 
-const VehicleAPIContextProvider:React.FC = ({children}) => {
-  const {query} = useRouter();
-
-  const { error,loading,data, refetch } = useQuery(GET_VEHICLE_QUERY, {
-      variables: {id: query.id as string}
-  })
+const VehicleAPIContextProvider: React.FC = ({ children }) => {
+  const { query } = useRouter();
+  // make api call here
+  const { error, loading, data, refetch } = useQuery<GetVehicleResponse, GetVehicleVariables>(GET_VEHICLE_QUERY, {
+    variables: { id: query.id as string }
+  });
   return (
-    <VehicleAPIContext.Provider value={{
-      vehicle: data ? data.vehicle : undefined,
-      isLoading: loading,
-      error: error ? U.errors.parseAndCreateClientError(error) : undefined
-    }}>
+    <VehicleAPIContext.Provider
+      value={{
+        vehicle: data ? data.vehicle : undefined,
+        isLoading: loading,
+        error: error ? U.errors.parseAndCreateClientError(error) : undefined
+      }}
+    >
       {children}
     </VehicleAPIContext.Provider>
   );

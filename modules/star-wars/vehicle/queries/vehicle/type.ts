@@ -1,13 +1,12 @@
 import { Vehicle } from '@md-shared/types/vehicle';
 
+export type GetVehicle = Pick<Vehicle, 'id' | 'name' | 'maxAtmospheringSpeed' | 'passengers'>;
 
-export type GetVehicle = Pick<Vehicle, 'id' | 'name' | 'maxAtmospheringSpeed' | 'passengers' >;
-
-export interface GetPlanetResponse {
+export interface GetVehicleResponse {
   vehicle: GetVehicle;
 }
 
-export interface GetPlanetVariables {
+export interface GetVehicleVariables {
   id?: string;
   vehicleId?: string;
 }
