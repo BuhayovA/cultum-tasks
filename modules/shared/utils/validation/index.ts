@@ -40,7 +40,7 @@ export const useValidations = (value: string, validations: validationsType) => {
 
         //If your input needed capital value
         case 'isCapital':
-          value.split('').some((e) => 'A' <= e && e <= 'Z') ? setCapitalError(false) : setCapitalError(true);
+          value.split('').some((e) => ('A' <= e && e <= 'Z') || ("А" <= e && e <= "Я")) ? setCapitalError(false) : setCapitalError(true);
           break;
 
         //If your input needed symbol value

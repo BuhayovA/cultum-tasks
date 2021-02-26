@@ -104,7 +104,7 @@ const FormPage = () => {
               name='phone'
             />
             {phone.isEmpty ? <EWrapper>This item cannot be empty.</EWrapper> : <div></div>}
-            {phone.isDirty && phone.phoneError ? <EWrapper>Invalid phone shape.</EWrapper> : <div></div>}
+            {phone.isDirty && phone.phoneError ? <EWrapper>Invalid phone shape.This item can only contain numbers.</EWrapper> : <div></div>}
             {phone.isDirty && phone.minLengthError ? (
               <EWrapper>The minimum length is 10 letters.</EWrapper>
             ) : (
