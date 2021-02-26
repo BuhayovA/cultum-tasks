@@ -1,15 +1,7 @@
 //hook(s)
 import React, { useEffect, useState } from 'react';
-
-interface validationsType {
-  isPhone: boolean;
-  isEmpty: boolean;
-  isCapital: boolean;
-  isSymbol: boolean;
-  isEmail: boolean;
-  maxLength: number;
-  minLength: number;
-}
+//type
+import { validationsType } from '@md-shared/types/validations';
 
 export const useValidations = (value: string, validations: validationsType) => {
   //local states
@@ -40,7 +32,9 @@ export const useValidations = (value: string, validations: validationsType) => {
 
         //If your input needed capital value
         case 'isCapital':
-          value.split('').some((e) => ('A' <= e && e <= 'Z') || ("А" <= e && e <= "Я")) ? setCapitalError(false) : setCapitalError(true);
+          value.split('').some((e) => ('A' <= e && e <= 'Z') || ('А' <= e && e <= 'Я'))
+            ? setCapitalError(false)
+            : setCapitalError(true);
           break;
 
         //If your input needed symbol value
@@ -83,7 +77,6 @@ export const useValidations = (value: string, validations: validationsType) => {
   const checkIsEmpty = () => {
     value.length > 0 ? setEmpty(false) : setEmpty(true);
   };
-
   return {
     isEmpty,
     minLengthError,
