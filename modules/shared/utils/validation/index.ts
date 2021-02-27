@@ -100,6 +100,7 @@ export const useValidations = (value: string, validations: validationsType) => {
 
   return {
     isEmpty,
+    setEmpty,
     minLengthError,
     maxLengthError,
     emailError,
@@ -119,7 +120,6 @@ export const useInput = (initialValue: string, validations: any) => {
   //func if input value changes
   const onChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setValue(event.target.value);
-    // valid.checkIsEmpty();
   };
 
   //func if input on blur
@@ -128,8 +128,14 @@ export const useInput = (initialValue: string, validations: any) => {
     valid.checkIsEmpty();
   };
 
+  //func if input on focus
+  const onFocus = (empty: boolean): void => {
+    valid.setEmpty(empty)
+  }
+
   return {
     value,
+    onFocus,
     onChange,
     onBlur,
     isDirty,

@@ -15,6 +15,7 @@ export interface validationsType {
 export interface validationsReturn {
   value: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onFocus:(empty: boolean) => void;
   onBlur: () => void;
   isDirty: boolean;
   isEmpty: boolean;

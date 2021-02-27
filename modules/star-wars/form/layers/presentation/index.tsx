@@ -11,6 +11,7 @@ const FormPresentation = () => {
         <IWrapper>
           <Input
             onChange={(event) => firstName.onChange(event)}
+            onFocus={() => firstName.onFocus(false)}
             onBlur={() => firstName.onBlur()}
             value={firstName.value}
             placeholder='First name'
@@ -31,6 +32,7 @@ const FormPresentation = () => {
         </IWrapper>
         <IWrapper>
           <Input
+            onFocus={() => lastName.onFocus(false)}
             value={lastName.value}
             onChange={(event) => lastName.onChange(event)}
             onBlur={() => lastName.onBlur()}
@@ -52,6 +54,7 @@ const FormPresentation = () => {
         </IWrapper>
         <IWrapper>
           <Input
+            onFocus={() => email.onFocus(false)}
             onBlur={() => email.onBlur()}
             value={email.value}
             onChange={(event) => email.onChange(event)}
@@ -64,6 +67,7 @@ const FormPresentation = () => {
         </IWrapper>
         <IWrapper>
           <Input
+            onFocus={() => phone.onFocus(false)}
             onBlur={() => phone.onBlur()}
             value={phone.value}
             onChange={(event) => phone.onChange(event)}
@@ -81,6 +85,7 @@ const FormPresentation = () => {
         </IWrapper>
         <IWrapper>
           <Input
+            onFocus={() => password.onFocus(false)}
             value={password.value}
             onChange={(event) => password.onChange(event)}
             onBlur={() => password.onBlur()}
