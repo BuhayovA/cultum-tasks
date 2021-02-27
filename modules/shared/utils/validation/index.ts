@@ -95,7 +95,7 @@ export const useValidations = (value: string, validations: validationsType) => {
   }, [isEmpty, minLengthError, symbolError, capitalError, maxLengthError, emailError, phoneError]);
 
   const checkIsEmpty = () => {
-    value.length > 0 ? setEmpty(false) : setEmpty(true);
+      value ? setEmpty(false) : setEmpty(true);
   };
 
   return {
@@ -124,7 +124,7 @@ export const useInput = (initialValue: string, validations: any) => {
   //func if input on blur
   const onBlur = (): void => {
     setDirty(true);
-    // valid.checkIsEmpty();
+    valid.checkIsEmpty();
   };
 
   return {
