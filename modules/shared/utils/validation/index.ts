@@ -125,7 +125,7 @@ export const useInput = (initialValue: string, validations: any) => {
   //func if input on blur
   const onBlur = (): void => {
     setDirty(true);
-    valid.checkIsEmpty();
+    // valid.checkIsEmpty();
   };
 
   //func if input on focus

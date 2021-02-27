@@ -14,7 +14,7 @@ const FormPresentation = () => {
             onFocus={() => firstName.onFocus(false)}
             onBlur={() => firstName.onBlur()}
             value={firstName.value}
-            placeholder='First name'
+            placeholder='First name *'
             type='tel'
             name='firstName'
           />
@@ -36,7 +36,7 @@ const FormPresentation = () => {
             value={lastName.value}
             onChange={(event) => lastName.onChange(event)}
             onBlur={() => lastName.onBlur()}
-            placeholder='Last name'
+            placeholder='Last name *'
             type='text'
             name='lastName'
           />
@@ -58,7 +58,7 @@ const FormPresentation = () => {
             onBlur={() => email.onBlur()}
             value={email.value}
             onChange={(event) => email.onChange(event)}
-            placeholder='Email'
+            placeholder='Email *'
             type='email'
             name='email'
           />
@@ -71,7 +71,7 @@ const FormPresentation = () => {
             onBlur={() => phone.onBlur()}
             value={phone.value}
             onChange={(event) => phone.onChange(event)}
-            placeholder='Phone'
+            placeholder='Phone *'
             type='phone'
             name='phone'
           />
@@ -89,7 +89,7 @@ const FormPresentation = () => {
             value={password.value}
             onChange={(event) => password.onChange(event)}
             onBlur={() => password.onBlur()}
-            placeholder='Password'
+            placeholder='Password *'
             type='password'
             name='password'
           />
