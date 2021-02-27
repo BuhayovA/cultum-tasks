@@ -119,7 +119,7 @@ export const useInput = (initialValue: string, validations: any) => {
   //func if input value changes
   const onChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setValue(event.target.value);
-    valid.checkIsEmpty();
+    // valid.checkIsEmpty();
   };
 
   //func if input on blur
