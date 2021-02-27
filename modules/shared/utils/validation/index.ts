@@ -53,13 +53,13 @@ export const useValidations = (value: string, validations: validationsType) => {
           }
 
         /*TODO*/
-        case 'isEmpty':
-          if (validations[validation]) {
-            value ? setEmpty(false) : setEmpty(true);
-            break;
-          } else {
-            break;
-          }
+        // case 'isEmpty':
+        //   if (validations[validation]) {
+        //     value ? setEmpty(false) : setEmpty(true);
+        //     break;
+        //   } else {
+        //     break;
+        //   }
 
         // If your input need phone type
         case 'isPhone':
@@ -119,6 +119,7 @@ export const useInput = (initialValue: string, validations: any) => {
   //func if input value changes
   const onChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setValue(event.target.value);
+    valid.checkIsEmpty();
   };
 
   //func if input on blur
