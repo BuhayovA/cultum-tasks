@@ -32,54 +32,54 @@ export const useValidations = (value: string, validations: validationsType) => {
 
         //If your input needed capital value
         case 'isCapital':
-          if(validations[validation]) {
+          if (validations[validation]) {
             value.split('').some((e) => ('A' <= e && e <= 'Z') || ('А' <= e && e <= 'Я'))
               ? setCapitalError(false)
               : setCapitalError(true);
             break;
-          }else{
+          } else {
             break;
           }
 
         //If your input needed symbol value
         case 'isSymbol':
-          if(validations[validation]) {
+          if (validations[validation]) {
             value.split('').some((e) => /[-!$%^&*()_+|~=`{}[\]:";'<>?,./]/.test(e))
               ? setSymbolError(false)
               : setSymbolError(true);
             break;
-          }else{
+          } else {
             break;
           }
 
         /*TODO*/
         case 'isEmpty':
-          if(validations[validation]) {
+          if (validations[validation]) {
             value ? setEmpty(false) : setEmpty(true);
             break;
-          }else{
+          } else {
             break;
           }
 
         // If your input need phone type
         case 'isPhone':
           // eslint-disable-next-line no-case-declarations
-          if(validations[validation]) {
+          if (validations[validation]) {
             const phoneRegular = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s./0-9]*$/g;
             phoneRegular.test(String(value)) ? setPhoneError(false) : setPhoneError(true);
             break;
-          }else{
+          } else {
             break;
           }
 
         //If your input need email type
         case 'isEmail':
           // eslint-disable-next-line no-case-declarations
-          if(validations[validation]) {
+          if (validations[validation]) {
             const emailRegular = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             emailRegular.test(String(value).toLowerCase()) ? setEmailError(false) : setEmailError(true);
             continue;
-          }else {
+          } else {
             break;
           }
       }
@@ -97,6 +97,7 @@ export const useValidations = (value: string, validations: validationsType) => {
   const checkIsEmpty = () => {
     value.length > 0 ? setEmpty(false) : setEmpty(true);
   };
+
   return {
     isEmpty,
     minLengthError,
@@ -123,7 +124,7 @@ export const useInput = (initialValue: string, validations: any) => {
   //func if input on blur
   const onBlur = (): void => {
     setDirty(true);
-    valid.checkIsEmpty();
+    // valid.checkIsEmpty();
   };
 
   return {
