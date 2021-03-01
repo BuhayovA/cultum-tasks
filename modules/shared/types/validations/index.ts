@@ -14,11 +14,13 @@ export interface validationsType {
 //What the hook returns.
 export interface validationsReturn {
   value: string;
+  error: string | undefined;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onFocus:(empty: boolean) => void;
   onBlur: () => void;
   isDirty: boolean;
   isEmpty: boolean;
+  setEmpty: (empty: boolean) => void;
   minLengthError: boolean;
   maxLengthError: boolean;
   emailError: boolean;
@@ -27,5 +29,4 @@ export interface validationsReturn {
   symbolError: boolean;
   inputValid: boolean;
   checkIsEmpty: () => void;
-  maxMinValidationValue: Pick<validationsType, 'minLength' | 'maxLength'>
 }

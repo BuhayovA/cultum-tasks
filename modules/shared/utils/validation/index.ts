@@ -14,6 +14,7 @@ export const useValidations = (value: string, validations: validationsType) => {
   const [symbolError, setSymbolError] = useState(false);
   const [inputValid, setInputValid] = useState(true);
 
+
   //Effect(s)
   useEffect(() => {
     //make іterates over an object validations
@@ -109,6 +110,29 @@ export const useInput = (initialValue: string, validations: validationsType) => 
   const [value, setValue] = useState(initialValue);
   const [isDirty, setDirty] = useState(false);
   const valid = useValidations(value, validations);
+  let error;
+  if(valid.isEmpty) {
+    error = `This item cannot be empty.`
+  }
+  if(valid.minLengthError && isDirty){
+    error = `The minimum length is ${validations.minLength} letters`
+  }
+  if(valid.maxLengthError && isDirty){
+    error = `The maximum length is ${validations.maxLength} letters.`
+  }
+  if(valid.emailError && isDirty){
+    error = `Email address must contain "@"!`
+  }
+  if(valid.phoneError && isDirty){
+    error = `Invalid phone shape.This item can only contain numbers.`
+  }
+  if(valid.capitalError && isDirty){
+    error = `The password must contain at least one uppercase letter.`
+  }
+  if(valid.symbolError && isDirty){
+    error = `The password must contain at least one symbol.`
+  }
+
 
   //func if input value changes
   const onChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -127,14 +151,11 @@ export const useInput = (initialValue: string, validations: validationsType) => 
 
   return {
     value,
+    error,
     onFocus,
     onChange,
     onBlur,
     isDirty,
-    maxMinValidationValue: {
-      minLength: validations.minLength,
-      maxLength: validations.maxLength,
-    },
     ...valid
   };
 };
