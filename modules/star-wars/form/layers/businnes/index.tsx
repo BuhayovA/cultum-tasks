@@ -21,7 +21,7 @@ const FormBLContextProvider: React.FC = ({ children }) => {
   const lastName = useInput('', { minLength: 5, maxLength: 50 });
   const email = useInput('', { isEmail: true });
   const phone = useInput('', { minLength: 10, isPhone: true });
-  const password = useInput('', { isCapital: true, isSymbol: true });
+  const password = useInput('', {isCapital: true, isSymbol: true });
 
   //func will be call button onclick on Submit
   const onSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {

@@ -6,7 +6,7 @@ import FormInput from '../../components/input-form/index'
 
 const FormPresentation = () => {
   const { firstName, lastName, email, onSubmit, password, phone } = useContext(FormBLContext);
-  // @ts-ignore
+
   return (
     <Wrapper>
       <form>
