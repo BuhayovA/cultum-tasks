@@ -22,11 +22,13 @@ export const useValidations = (value: string, validations: validationsType) => {
       switch (validation) {
         //If your input needed min length value
         case 'minLength':
+          // @ts-ignore
           value.length < validations[validation] ? setMinLengthError(true) : setMinLengthError(false);
-          break;
+            break;
 
         //If your input needed max length value
         case 'maxLength':
+          // @ts-ignore
           value.length > validations[validation] ? setMaxLengthError(true) : setMaxLengthError(false);
           break;
 
@@ -51,15 +53,6 @@ export const useValidations = (value: string, validations: validationsType) => {
           } else {
             break;
           }
-
-        /*TODO*/
-        // case 'isEmpty':
-        //   if (validations[validation]) {
-        //     value ? setEmpty(false) : setEmpty(true);
-        //     break;
-        //   } else {
-        //     break;
-        //   }
 
         // If your input need phone type
         case 'isPhone':
@@ -112,7 +105,7 @@ export const useValidations = (value: string, validations: validationsType) => {
   };
 };
 
-export const useInput = (initialValue: string, validations: any) => {
+export const useInput = (initialValue: string, validations: validationsType) => {
   const [value, setValue] = useState(initialValue);
   const [isDirty, setDirty] = useState(false);
   const valid = useValidations(value, validations);
@@ -125,7 +118,6 @@ export const useInput = (initialValue: string, validations: any) => {
   //func if input on blur
   const onBlur = (): void => {
     setDirty(true);
-    // valid.checkIsEmpty();
   };
 
   //func if input on focus
@@ -139,6 +131,10 @@ export const useInput = (initialValue: string, validations: any) => {
     onChange,
     onBlur,
     isDirty,
+    maxMinValidationValue: {
+      minLength: validations.minLength,
+      maxLength: validations.maxLength,
+    },
     ...valid
   };
 };
