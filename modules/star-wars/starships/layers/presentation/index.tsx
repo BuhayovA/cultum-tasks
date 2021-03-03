@@ -16,7 +16,7 @@ const StarshipsPresentation = () => {
 
   return (
       <ContentLoader isLoading={isLoading !== networkStatus} error={error}>
-        <ContentWrapper onScroll={(e) => handleScroll(e)}>
+        <ContentWrapper onScroll={(e: any) => handleScroll(e)}>
             <Wrapper>
                 {starshipsList.map((starship) => (
                   <Card {...starship} key={starship.id} />
