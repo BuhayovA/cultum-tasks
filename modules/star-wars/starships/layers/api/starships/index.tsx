@@ -42,10 +42,8 @@ const StarshipsAPIContextProvider: React.FC = ({ children }) => {
     }
   );
 
-
   const fetchMoreStarships = async (variables?: GetStarshipsVariables) => {
     try {
-
       await fetchMore({
         variables,
         updateQuery: (prev, { fetchMoreResult }) => {
