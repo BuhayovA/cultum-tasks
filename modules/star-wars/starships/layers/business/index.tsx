@@ -8,15 +8,28 @@ type ListItem = Pick<Starship, 'id' | 'name'>;
 
 interface Context {
   starshipsList: ListItem[];
+  handleScroll: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const StarshipsBLContext = React.createContext<Context>({
-  starshipsList: []
+  starshipsList: [],
+  handleScroll: () => {}
 });
 
 const StarshipsBLContextProvider: React.FC = ({ children }) => {
   // add business logic here
-  const { starships } = React.useContext(StarshipsAPIContext);
+  const { starships, fetchMore, endCursor, hasNextPage, isLoading, } = React.useContext(StarshipsAPIContext);
+
+  // when user scroll container
+  const handleScroll = (e: React.ChangeEvent<HTMLInputElement>) => {
+
+    if (e.target.scrollHeight - (e.target.scrollTop + window.innerHeight) < 100 && hasNextPage && !isLoading) {
+      fetchMore({
+        first: 3,
+        after: endCursor,
+        })
+    }
+  };
 
   const starshipsList = React.useMemo<ListItem[]>(
     () =>
@@ -30,7 +43,8 @@ const StarshipsBLContextProvider: React.FC = ({ children }) => {
   return (
     <StarshipsBLContext.Provider
       value={{
-        starshipsList
+        starshipsList,
+        handleScroll
       }}
     >
       {children}

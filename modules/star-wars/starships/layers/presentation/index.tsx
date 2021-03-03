@@ -9,19 +9,22 @@ import { StarshipsBLContext } from '@md-sw-starships/layers/business';
 import { ContentWrapper, Wrapper } from '@md-shared/views/common';
 
 const StarshipsPresentation = () => {
-  const { isLoading, error } = React.useContext(StarshipsAPIContext);
-  const { starshipsList } = React.useContext(StarshipsBLContext);
+  // add api logic here
+  const { isLoading, error, networkStatus } = React.useContext(StarshipsAPIContext);
+  // add business logic here
+  const { starshipsList, handleScroll } = React.useContext(StarshipsBLContext);
 
   return (
-    <ContentWrapper>
-      <ContentLoader isLoading={isLoading} error={error}>
-        <Wrapper>
-          {starshipsList.map((starship) => (
-            <Card {...starship} key={starship.id} />
-          ))}
-        </Wrapper>
+      <ContentLoader isLoading={isLoading !== networkStatus} error={error}>
+        <ContentWrapper onScroll={(e) => handleScroll(e)}>
+            <Wrapper>
+                {starshipsList.map((starship) => (
+                  <Card {...starship} key={starship.id} />
+                ))}
+              <ContentLoader position={'relative'} isLoading={networkStatus} error={error}/>
+            </Wrapper>
+        </ContentWrapper>
       </ContentLoader>
-    </ContentWrapper>
   );
 };
 

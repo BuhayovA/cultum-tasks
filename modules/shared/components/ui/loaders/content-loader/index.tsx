@@ -10,12 +10,13 @@ import { ErrorWrapper } from '../../errors/content';
 interface Props {
   isLoading: boolean;
   error?: ClientError;
+  position?: string;
 }
 
-const ContentLoader: React.FC<Props> = ({ children, isLoading, error }) => {
+const ContentLoader: React.FC<Props> = ({ position, children, isLoading, error}) => {
   if (isLoading) {
     return (
-      <Wrapper>
+      <Wrapper position={position}>
         <Loader />
       </Wrapper>
     );
@@ -31,6 +32,7 @@ const ContentLoader: React.FC<Props> = ({ children, isLoading, error }) => {
 const Wrapper = styled.div`
   ${({ theme }) => theme.templates.absolute};
   ${({ theme }) => theme.templates.centerContent};
+  position: ${({position}) => position};
 `;
 
 export { ContentLoader };
