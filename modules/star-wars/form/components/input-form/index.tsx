@@ -1,15 +1,15 @@
 //type
 import { validationsReturn } from '@md-shared/types/validations';
 //views
-import { IWrapper,Input,EWrapper } from './views';
+import { IWrapper, Input, EWrapper } from './views';
 
 interface Props {
-  inputMethods: validationsReturn,
-  placeholder: string,
-  inputType: string,
+  inputMethods: validationsReturn;
+  placeholder: string;
+  inputType: string;
 }
 
-const FormInput: React.FC<Props> = ({ inputMethods, placeholder, inputType}) => {
+const FormInput: React.FC<Props> = ({ inputMethods, placeholder, inputType }) => {
   //error
   const error = inputMethods.error && <EWrapper>{inputMethods.error}</EWrapper>;
 

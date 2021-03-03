@@ -8,6 +8,10 @@ export const GET_STARSHIPS_QUERY = gql`
         id
         name
       }
+      pageInfo {
+        endCursor
+        hasNextPage
+      }
     }
   }
 `;

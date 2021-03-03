@@ -4,6 +4,10 @@ export type Starships = Pick<Starship, 'id' | 'name'>[];
 
 export interface GetStarshipsResponse {
   allStarships: {
+    pageInfo: {
+      hasNextPage: boolean;
+      endCursor: string;
+    };
     totalCount: number;
     starships: Starships;
   };
