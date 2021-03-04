@@ -40,6 +40,9 @@ const ChatPresentation = () => {
       </InputWrapper>
 
       <SwapPersonWrapper>
+        {/*{messages && messages.map(message => {*/}
+        {/*  return <Avatar avatarImg={message.imgSrc} active={activeUser === message.userId} onClick={() => setActiveUser(message.userId)}/>*/}
+        {/*})}*/}
         <Avatar
           active={activeUser == 1}
           onClick={() => setActiveUser(1)}
@@ -49,6 +52,11 @@ const ChatPresentation = () => {
           active={activeUser == 2}
           onClick={() => setActiveUser(2)}
           avatarImg='/static/avatars/gratis-png-discord-avatar-personaje-digital-arte-avatar.png'
+        />
+        <Avatar
+          active={activeUser == 3}
+          onClick={() => setActiveUser(3)}
+          avatarImg='/static/avatars/Screen-Shot-2020-04-27-at-10.28.26-AM--1-.png'
         />
       </SwapPersonWrapper>
     </Wrapper>

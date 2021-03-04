@@ -69,6 +69,13 @@ const ChatBLContextProvider: React.FC = ({ children }) => {
         imgSrc: '/static/avatars/make-discord-avatars-but-not-minecraft-or-anime.jpg'
       },
       {
+        userId: 3,
+        userName: 'Egor',
+        id: 4,
+        message: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus earum omnis pariatur totam. Asperiores dicta placeat possimus sapiente sunt voluptatum.`,
+        imgSrc: '/static/avatars/Screen-Shot-2020-04-27-at-10.28.26-AM--1-.png'
+      },
+      {
         userId: 1,
         userName: 'Andrew',
         id: 2,
@@ -88,7 +95,7 @@ const ChatBLContextProvider: React.FC = ({ children }) => {
         id: 4,
         message: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, iure?`,
         imgSrc: '/static/avatars/gratis-png-discord-avatar-personaje-digital-arte-avatar.png'
-      }
+      },
     ],
     newMessage: ''
   });

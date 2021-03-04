@@ -14,12 +14,8 @@ export const Input = styled.input`
   padding: 10px;
   text-decoration: none;
   outline: 0;
-  color: black;
   outline-offset: 0;
-  //&:focus {
-  //  transition: 0.2s;
-  //  border-bottom: 2px solid #4285f4 !important;
-  //}
+    
   //un select
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Chrome/Safari/Opera */
