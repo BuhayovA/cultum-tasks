@@ -1,20 +1,29 @@
 import React from 'react';
-import { ImageWrapper, IWrapper,Input } from './view';
+import { ImageWrapper, Wrapper,Input } from './view';
 
 
 interface Props {
-  sendButtonImg?: string;
+  endIcon?: string;
+  startIcon?: string;
   placeholder?: string;
+  inputValue: string,
+  addMessage: () => void;
+  addTextMessage: (message: string) => void;
 }
 
-const ChatInput: React.FC<Props> = ({sendButtonImg, placeholder}) => {
+const ChatInput: React.FC<Props> = ({endIcon, inputValue,startIcon, placeholder, addMessage,addTextMessage}) => {
   return (
-    <IWrapper>
-      <Input placeholder={placeholder}/>
+    <Wrapper>
       <ImageWrapper>
-        <img src={sendButtonImg} alt='send'  width='50px' height='30px'/>
+        <img src={startIcon} alt='send' width='50px'  height='35px'/>
       </ImageWrapper>
-    </IWrapper>
+
+      <Input onChange={(event) => addTextMessage(event.target.value)} value={inputValue} placeholder={placeholder}/>
+
+      <ImageWrapper>
+        <img onClick={() => addMessage()} src={endIcon} alt='send'  width='50px' height='30px'/>
+      </ImageWrapper>
+    </Wrapper>
   );
 };
 

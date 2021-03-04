@@ -1,12 +1,22 @@
 import React from 'react';
-import { Wrapper } from './views';
+import { MWrapper, Wrapper, AvatarWrapper } from './views';
+import { Avatar } from '@md-ui/avatar/main';
 
 
+interface Props {
+  message: string;
+  avatarImg: string
+}
 
-const Message = () => {
+const Message: React.FC<Props> = ({message, avatarImg}) => {
   return (
     <Wrapper>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium aliquam amet aspernatur beatae consequuntur, culpa cupiditate, deserunt dicta doloribus ea eaque eos est et excepturi illum ipsam labore maiores maxime mollitia necessitatibus odio officiis, quae quia quidem quis quisquam quos ratione rem sit tenetur totam unde vel veniam voluptas.
+      <AvatarWrapper>
+        <Avatar avatarImg={avatarImg}/>
+      </AvatarWrapper>
+      <MWrapper>
+        {message}
+      </MWrapper>
     </Wrapper>
   );
 };

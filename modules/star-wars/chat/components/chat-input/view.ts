@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const IWrapper = styled.div`
+export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,11 +17,10 @@ export const Input = styled.input`
   color: black;
   outline-offset: 0;
   //&:focus {
-  //  transition: 0.5s;
+  //  transition: 0.2s;
   //  border-bottom: 2px solid #4285f4 !important;
   //}
 `
-
 
 export const ImageWrapper = styled.image`
   cursor: pointer;
