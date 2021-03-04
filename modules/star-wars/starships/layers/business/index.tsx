@@ -18,16 +18,15 @@ const StarshipsBLContext = React.createContext<Context>({
 
 const StarshipsBLContextProvider: React.FC = ({ children }) => {
   // add business logic here
-  const { starships, fetchMore, endCursor, hasNextPage, isLoading, } = React.useContext(StarshipsAPIContext);
+  const { starships, fetchMore, endCursor, hasNextPage, isLoading } = React.useContext(StarshipsAPIContext);
 
   // when user scroll container
   const handleScroll = (e: React.ChangeEvent<HTMLInputElement>) => {
-
     if (e.target.scrollHeight - (e.target.scrollTop + window.innerHeight) < 100 && hasNextPage && !isLoading) {
       fetchMore({
         first: 3,
-        after: endCursor,
-        })
+        after: endCursor
+      });
     }
   };
 

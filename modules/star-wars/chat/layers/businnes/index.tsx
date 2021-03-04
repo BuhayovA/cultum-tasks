@@ -1,6 +1,6 @@
-import React, {useState } from 'react';
+import React, { useState } from 'react';
+//type
 import { Message } from '@md-shared/types/chat';
-
 
 interface Context {
   messages: Message[] | undefined;
@@ -12,22 +12,21 @@ interface Context {
 }
 
 interface State {
-  messages: Message[],
-  newMessage: string,
+  messages: Message[];
+  newMessage: string;
 }
 
 export const ChatBLContext = React.createContext<Context>({
-    messages: undefined,
-    newMessage: '',
-    addMessage: () => {},
-    addTextMessage: () => {},
-    setActiveUser: () => {},
-    activeUser: 1,
-  }
-)
+  messages: undefined,
+  newMessage: '',
+  addMessage: () => {},
+  addTextMessage: () => {},
+  setActiveUser: () => {},
+  activeUser: 1
+});
 
-const ChatBLContextProvider: React.FC = ({children}) => {
-  const [activeUser,setActiveUser] = useState(1)
+const ChatBLContextProvider: React.FC = ({ children }) => {
+  const [activeUser, setActiveUser] = useState(1);
 
   // const [peopleState, setPeopleState] = useState({
   //   people: [
@@ -58,59 +57,85 @@ const ChatBLContextProvider: React.FC = ({children}) => {
   //   ],
   // })
 
-  const [messagesState,setMessagesState] = useState<State>({
+  //local state
+  const [messagesState, setMessagesState] = useState<State>({
     messages: [
-      {userId: 1, userName:'Andrew', id: 1, message: `Hello`, imgSrc: '/static/avatars/make-discord-avatars-but-not-minecraft-or-anime.jpg'},
-      {userId: 1, userName:'Andrew', id: 2, message: `How are you?`, imgSrc: '/static/avatars/make-discord-avatars-but-not-minecraft-or-anime.jpg'},
-      {userId: 1,userName:'Andrew', id: 3, message: `Happy birthday, for me`, imgSrc: '/static/avatars/make-discord-avatars-but-not-minecraft-or-anime.jpg'},
-      {userId: 2,userName:'Alexandr', id: 4, message: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, iure?`, imgSrc: '/static/avatars/gratis-png-discord-avatar-personaje-digital-arte-avatar.png'},
+      {
+        userId: 1,
+        userName: 'Andrew',
+        id: 1,
+        message: `Hello`,
+        imgSrc: '/static/avatars/make-discord-avatars-but-not-minecraft-or-anime.jpg'
+      },
+      {
+        userId: 1,
+        userName: 'Andrew',
+        id: 2,
+        message: `How are you?`,
+        imgSrc: '/static/avatars/make-discord-avatars-but-not-minecraft-or-anime.jpg'
+      },
+      {
+        userId: 1,
+        userName: 'Andrew',
+        id: 3,
+        message: `Happy birthday, for me`,
+        imgSrc: '/static/avatars/make-discord-avatars-but-not-minecraft-or-anime.jpg'
+      },
+      {
+        userId: 2,
+        userName: 'Alexandr',
+        id: 4,
+        message: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, iure?`,
+        imgSrc: '/static/avatars/gratis-png-discord-avatar-personaje-digital-arte-avatar.png'
+      }
     ],
-    newMessage: '',
-  })
+    newMessage: ''
+  });
 
   const addMessage = () => {
-    if(messagesState.newMessage.length == 0) {
-      return
+    if (messagesState.newMessage.length == 0) {
+      return;
     }
 
-    const checkPerson = messagesState.messages.find(message => {
-      return message.userId == activeUser
-    })
+    const checkPerson = messagesState.messages.find((message) => {
+      return message.userId == activeUser;
+    });
 
-    const addNewMessage = {
+    const newMessage = {
       ...checkPerson,
       message: messagesState.newMessage
-    }
+    };
 
-    setMessagesState((prevState ) => {
-      return ({
-        newMessage: '',
-        messages: [...prevState.messages, addNewMessage]
-      });
-    })
-  }
+    setMessagesState(
+      (prevState): State => {
+        return {
+          newMessage: '',
+          messages: [...prevState.messages, newMessage] as Message[]
+        };
+      }
+    );
+  };
 
+  // update newMessage value when input onchange
   const addTextMessage = (message: string) => {
     setMessagesState((prev) => {
       return {
         ...prev,
-        newMessage: message,
-      }
-    })
-  }
+        newMessage: message
+      };
+    });
+  };
 
-  return (
-    <ChatBLContext.Provider value={{
-      addMessage,
-      addTextMessage,
-      setActiveUser,
-      messages: messagesState.messages,
-      newMessage: messagesState.newMessage,
-      activeUser
-    }}>
-      {children}
-    </ChatBLContext.Provider>
-  );
+  const contextValue = {
+    addMessage,
+    addTextMessage,
+    setActiveUser,
+    messages: messagesState.messages,
+    newMessage: messagesState.newMessage,
+    activeUser
+  };
+
+  return <ChatBLContext.Provider value={contextValue}>{children}</ChatBLContext.Provider>;
 };
 
 export default ChatBLContextProvider;

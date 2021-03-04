@@ -8,8 +8,8 @@ interface Props {
   active?: boolean;
 }
 
-const Avatar: React.FC<Props> = ({avatarImg, onClick, active}) => (
-    <Image active={active} onClick={onClick} src={avatarImg} />
+const Avatar: React.FC<Props> = ({ avatarImg, onClick, active }) => (
+  <Image active={active} onClick={onClick} src={avatarImg} />
 );
 
 export { Avatar };

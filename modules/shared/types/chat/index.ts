@@ -1,8 +1,7 @@
-
 export interface Message {
-  userId: number,
-  id: number,
-  message: string,
-  imgSrc: string,
-  userName: string,
+  userId: number;
+  userName: string;
+  id: number;
+  message: string;
+  imgSrc: string;
 }

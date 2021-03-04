@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   padding: 16px;
-`
+`;
 export const Input = styled.input`
   background: #c7c7c7;
   border-radius: 50px;
@@ -20,10 +20,18 @@ export const Input = styled.input`
   //  transition: 0.2s;
   //  border-bottom: 2px solid #4285f4 !important;
   //}
-`
+  //un select
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Chrome/Safari/Opera */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+`;
 
 export const ImageWrapper = styled.image`
   cursor: pointer;
-`
-
-
+  //un select
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Chrome/Safari/Opera */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+`;

@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-
 interface Props {
   active: boolean;
 }
@@ -11,10 +10,15 @@ export const Image = styled.img`
   border-radius: 50%;
   object-fit: cover;
   display: block;
-  -moz-user-select: none;
-  -khtml-user-select: none;
   user-select: none;
   padding: 2px;
   cursor: pointer;
-  border: ${({active}: Props) => active ? "2px solid #0070f3" : 'none'};
-`
+  border: ${({ active }: Props) => (active ? '2px solid #0070f3' : 'none')};
+  transition: all ease 0.25ms;
+  
+  //un select
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Chrome/Safari/Opera */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+`;

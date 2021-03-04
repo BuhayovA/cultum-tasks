@@ -5,7 +5,7 @@ import ChatContainer from '@md-star-wars/chat';
 const ChatPage = () => {
   return (
     <MainLayout>
-      <ChatContainer/>
+      <ChatContainer />
     </MainLayout>
   );
 };

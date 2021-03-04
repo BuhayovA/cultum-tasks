@@ -13,7 +13,7 @@ interface Props {
   position?: string;
 }
 
-const ContentLoader: React.FC<Props> = ({ position, children, isLoading, error}) => {
+const ContentLoader: React.FC<Props> = ({ position, children, isLoading, error }) => {
   if (isLoading) {
     return (
       <Wrapper position={position}>
@@ -32,7 +32,7 @@ const ContentLoader: React.FC<Props> = ({ position, children, isLoading, error})
 const Wrapper = styled.div`
   ${({ theme }) => theme.templates.absolute};
   ${({ theme }) => theme.templates.centerContent};
-  position: ${({position}) => position};
+  position: ${({ position }) => position};
 `;
 
 export { ContentLoader };
