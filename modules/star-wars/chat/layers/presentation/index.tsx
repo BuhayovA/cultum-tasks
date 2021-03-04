@@ -15,8 +15,8 @@ const ChatPresentation = () => {
     <Wrapper>
       <ChatWrapper>
         <MessageWrapper>
-          {messages
-            ? messages.map((message) => (
+          {messages &&
+            messages.map((message) => (
               <Message
                 active={activeUser == message.userId}
                 userName={message.userName}
@@ -24,8 +24,7 @@ const ChatPresentation = () => {
                 key={message.id}
                 message={message.message}
               />
-            ))
-            : undefined}
+            ))}
         </MessageWrapper>
       </ChatWrapper>
 

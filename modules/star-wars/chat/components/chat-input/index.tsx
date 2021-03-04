@@ -18,7 +18,7 @@ const ChatInput: React.FC<Props> = ({ endIcon, startIcon, inputValue, placeholde
       </ImageWrapper>
 
       <Input
-        onKeyDown={(e) => (e.key === 'Enter' ? addMessage() : undefined)}
+        onKeyDown={(e) => (e.key === 'Enter' && addMessage())}
         onChange={(event) => addTextMessage(event.target.value)}
         value={inputValue}
         placeholder={placeholder}

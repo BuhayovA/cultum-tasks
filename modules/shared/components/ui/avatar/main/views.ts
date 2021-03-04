@@ -15,7 +15,7 @@ export const Image = styled.img`
   cursor: pointer;
   border: ${({ active }: Props) => (active ? '2px solid #0070f3' : 'none')};
   transition: all ease 0.25ms;
-  
+
   //un select
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Chrome/Safari/Opera */

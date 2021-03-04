@@ -26,6 +26,7 @@ export const ChatBLContext = React.createContext<Context>({
 });
 
 const ChatBLContextProvider: React.FC = ({ children }) => {
+  //state for checking the active user
   const [activeUser, setActiveUser] = useState(1);
 
   // const [peopleState, setPeopleState] = useState({
