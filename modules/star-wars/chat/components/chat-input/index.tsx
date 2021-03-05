@@ -41,7 +41,7 @@ const ChatInput: React.FC<Props> = ({
   return (
     <>
       <UploadWrapper>
-        {uploadImages && uploadImages.map((image: string) => <UploadImage key={image} src={image} />)}
+        {uploadImages && uploadImages.map((image: string, index) => <UploadImage key={index} src={image} />)}
       </UploadWrapper>
 
       <Wrapper>
