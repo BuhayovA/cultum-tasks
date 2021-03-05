@@ -9,7 +9,9 @@ import { ChatBLContext } from '@md-star-wars/chat/layers/businnes';
 
 const ChatPresentation = () => {
   // use bll logic here
-  const { addMessage, addTextMessage, newMessage, messages, setActiveUser, activeUser } = useContext(ChatBLContext);
+  const { addMessage, addTextMessage, newMessage, messages, setActiveUser, activeUser, addImage, Images } = useContext(
+    ChatBLContext
+  );
 
   return (
     <Wrapper>
@@ -18,9 +20,10 @@ const ChatPresentation = () => {
           {messages &&
             messages.map((message) => (
               <Message
+                images={message.imgSrc}
                 active={activeUser == message.userId}
                 userName={message.userName}
-                avatarImg={message.imgSrc}
+                avatarImg={message.avatar}
                 key={message.id}
                 message={message.message}
               />
@@ -30,9 +33,11 @@ const ChatPresentation = () => {
 
       <InputWrapper>
         <ChatInput
-          addMessage={addMessage}
-          addTextMessage={addTextMessage}
+          addImage={addImage}
+          endIconOnClick={addMessage}
+          inputOnChange={addTextMessage}
           inputValue={newMessage}
+          uploadImages={Images}
           placeholder='Start typing...'
           startIcon={'/static/images/photo-camera.svg'}
           endIcon={'/static/images/send-button.svg'}
@@ -40,9 +45,6 @@ const ChatPresentation = () => {
       </InputWrapper>
 
       <SwapPersonWrapper>
-        {/*{messages && messages.map(message => {*/}
-        {/*  return <Avatar avatarImg={message.imgSrc} active={activeUser === message.userId} onClick={() => setActiveUser(message.userId)}/>*/}
-        {/*})}*/}
         <Avatar
           active={activeUser == 1}
           onClick={() => setActiveUser(1)}

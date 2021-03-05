@@ -3,5 +3,6 @@ export interface Message {
   userName: string;
   id: number;
   message: string;
-  imgSrc: string;
+  avatar: string;
+  imgSrc: string[];
 }

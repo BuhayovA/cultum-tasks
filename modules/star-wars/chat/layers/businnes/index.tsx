@@ -8,11 +8,14 @@ interface Context {
   addMessage: () => void;
   addTextMessage: (message: string) => void;
   setActiveUser: (id: number) => void;
+  addImage: (image: string[]) => void;
   activeUser: number;
+  Images: string[];
 }
 
 interface State {
   messages: Message[];
+  Images: string[];
   newMessage: string;
 }
 
@@ -22,41 +25,14 @@ export const ChatBLContext = React.createContext<Context>({
   addMessage: () => {},
   addTextMessage: () => {},
   setActiveUser: () => {},
-  activeUser: 1
+  activeUser: 1,
+  addImage: () => {},
+  Images: []
 });
 
 const ChatBLContextProvider: React.FC = ({ children }) => {
   //state for checking the active user
   const [activeUser, setActiveUser] = useState(1);
-
-  // const [peopleState, setPeopleState] = useState({
-  //   people: [
-  //     {
-  //       userName: 'Andrew',
-  //       userId: 1,
-  //       imgSrc: '/static/avatars/gratis-png-discord-avatar-personaje-digital-arte-avatar.png',
-  //       messages: [
-  //         {id: 1, message: `Hello` },
-  //         {id: 2, message: `How are you?`},
-  //         {id: 3, message: `Happy birthday, for me`},
-  //         {id: 4, message: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, iure?`},
-  //       ],
-  //       newMessage: '',
-  //     },
-  //     {
-  //       userName: 'Andrew',
-  //       userId: 2,
-  //       imgSrc: '/static/avatars/make-discord-avatars-but-not-minecraft-or-anime.jpg',
-  //       messages: [
-  //         {id: 1, message: `Hello` },
-  //         {id: 2, message: `How are you?`},
-  //         {id: 3, message: `Happy birthday, for me`},
-  //         {id: 4, message: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, iure?`},
-  //       ],
-  //       newMessage: '',
-  //     },
-  //   ],
-  // })
 
   //local state
   const [messagesState, setMessagesState] = useState<State>({
@@ -66,42 +42,48 @@ const ChatBLContextProvider: React.FC = ({ children }) => {
         userName: 'Andrew',
         id: 1,
         message: `Hello`,
-        imgSrc: '/static/avatars/make-discord-avatars-but-not-minecraft-or-anime.jpg'
+        avatar: '/static/avatars/make-discord-avatars-but-not-minecraft-or-anime.jpg',
+        imgSrc: []
       },
       {
         userId: 3,
         userName: 'Egor',
         id: 4,
         message: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus earum omnis pariatur totam. Asperiores dicta placeat possimus sapiente sunt voluptatum.`,
-        imgSrc: '/static/avatars/Screen-Shot-2020-04-27-at-10.28.26-AM--1-.png'
+        avatar: '/static/avatars/Screen-Shot-2020-04-27-at-10.28.26-AM--1-.png',
+        imgSrc: []
       },
       {
         userId: 1,
         userName: 'Andrew',
         id: 2,
         message: `How are you?`,
-        imgSrc: '/static/avatars/make-discord-avatars-but-not-minecraft-or-anime.jpg'
+        avatar: '/static/avatars/make-discord-avatars-but-not-minecraft-or-anime.jpg',
+        imgSrc: []
       },
       {
         userId: 1,
         userName: 'Andrew',
         id: 3,
         message: `Happy birthday, for me`,
-        imgSrc: '/static/avatars/make-discord-avatars-but-not-minecraft-or-anime.jpg'
+        avatar: '/static/avatars/make-discord-avatars-but-not-minecraft-or-anime.jpg',
+        imgSrc: []
       },
       {
         userId: 2,
         userName: 'Alexandr',
         id: 4,
         message: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, iure?`,
-        imgSrc: '/static/avatars/gratis-png-discord-avatar-personaje-digital-arte-avatar.png'
-      },
+        avatar: '/static/avatars/gratis-png-discord-avatar-personaje-digital-arte-avatar.png',
+        imgSrc: []
+      }
     ],
-    newMessage: ''
+    newMessage: '',
+    Images: []
   });
 
   const addMessage = () => {
-    if (messagesState.newMessage.length == 0) {
+    if (messagesState.newMessage.length == 0 && messagesState.Images.length == 0) {
       return;
     }
 
@@ -111,13 +93,15 @@ const ChatBLContextProvider: React.FC = ({ children }) => {
 
     const newMessage = {
       ...checkPerson,
-      message: messagesState.newMessage
+      message: messagesState.newMessage,
+      imgSrc: messagesState.Images
     };
 
     setMessagesState(
       (prevState): State => {
         return {
           newMessage: '',
+          Images: [],
           messages: [...prevState.messages, newMessage] as Message[]
         };
       }
@@ -134,13 +118,24 @@ const ChatBLContextProvider: React.FC = ({ children }) => {
     });
   };
 
+  const addImage = (images: string[]) => {
+    setMessagesState((prev) => {
+      return {
+        ...prev,
+        Images: [...messagesState.Images, ...images]
+      };
+    });
+  };
+
   const contextValue = {
     addMessage,
     addTextMessage,
     setActiveUser,
     messages: messagesState.messages,
     newMessage: messagesState.newMessage,
-    activeUser
+    activeUser,
+    addImage,
+    Images: messagesState.Images
   };
 
   return <ChatBLContext.Provider value={contextValue}>{children}</ChatBLContext.Provider>;
