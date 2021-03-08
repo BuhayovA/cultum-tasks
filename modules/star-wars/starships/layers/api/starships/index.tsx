@@ -9,7 +9,6 @@ import { GET_STARSHIPS_QUERY } from '@md-queries/starships';
 import { GetStarshipsResponse, GetStarshipsVariables, Starships } from '@md-queries/starships/types';
 import { ClientError } from '@md-utils/errors/custom';
 
-
 interface Context {
   starships: Starships;
   error?: ClientError;
@@ -18,29 +17,28 @@ interface Context {
   refetch: (variables?: GetStarshipsVariables) => Promise<ClientError | Starships>;
   hasNextPage: boolean;
   networkStatus: boolean;
-  fetchMore: (variables?: GetStarshipsVariables) => void
+  fetchMore: (variables?: GetStarshipsVariables) => void;
 }
 
 const StarshipsAPIContext = React.createContext<Context>({
-    starships: [],
-    isLoading: false,
-    hasNextPage: false,
-    error: undefined,
-    endCursor: undefined,
-    refetch: () => Promise.resolve([] as Starships),
-    networkStatus: false,
-    fetchMore: () => {}
-  }
-);
+  starships: [],
+  isLoading: false,
+  hasNextPage: false,
+  error: undefined,
+  endCursor: undefined,
+  refetch: () => Promise.resolve([] as Starships),
+  networkStatus: false,
+  fetchMore: () => {}
+});
 
 const StarshipsAPIContextProvider: React.FC = ({ children }) => {
-  const { data, loading, refetch, error, fetchMore, networkStatus } = useQuery<GetStarshipsResponse, GetStarshipsVariables>(
-    GET_STARSHIPS_QUERY,
-    {
-      variables: { first: 3, after: undefined},
-      notifyOnNetworkStatusChange: true,
-    }
-  );
+  const { data, loading, refetch, error, fetchMore, networkStatus } = useQuery<
+    GetStarshipsResponse,
+    GetStarshipsVariables
+  >(GET_STARSHIPS_QUERY, {
+    variables: { first: 3, after: undefined },
+    notifyOnNetworkStatusChange: true
+  });
 
   const fetchMoreStarships = async (variables?: GetStarshipsVariables) => {
     try {
@@ -54,12 +52,11 @@ const StarshipsAPIContextProvider: React.FC = ({ children }) => {
           ];
           return fetchMoreResult;
         }
-      })
-
-    }catch (error){
+      });
+    } catch (error) {
       return U.errors.parseAndCreateClientError(error);
     }
-  }
+  };
 
   const refetchStarships = async (variables?: GetStarshipsVariables) => {
     try {
@@ -79,7 +76,7 @@ const StarshipsAPIContextProvider: React.FC = ({ children }) => {
     networkStatus: networkStatus === NetworkStatus.fetchMore,
     isLoading: loading,
     refetch: refetchStarships,
-    fetchMore: fetchMoreStarships,
+    fetchMore: fetchMoreStarships
   };
 
   return <StarshipsAPIContext.Provider value={value}>{children}</StarshipsAPIContext.Provider>;

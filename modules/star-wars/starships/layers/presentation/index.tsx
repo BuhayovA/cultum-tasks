@@ -15,16 +15,16 @@ const StarshipsPresentation = () => {
   const { starshipsList, handleScroll } = React.useContext(StarshipsBLContext);
 
   return (
-      <ContentLoader isLoading={isLoading !== networkStatus} error={error}>
-        <ContentWrapper onScroll={(e) => handleScroll(e)}>
-            <Wrapper>
-                {starshipsList.map((starship) => (
-                  <Card {...starship} key={starship.id} />
-                ))}
-              <ContentLoader position={'relative'} isLoading={networkStatus} error={error}/>
-            </Wrapper>
-        </ContentWrapper>
-      </ContentLoader>
+    <ContentLoader isLoading={isLoading !== networkStatus} error={error}>
+      <ContentWrapper onScroll={(e: any) => handleScroll(e)}>
+        <Wrapper>
+          {starshipsList.map((starship) => (
+            <Card {...starship} key={starship.id} />
+          ))}
+          <ContentLoader position={'relative'} isLoading={networkStatus} error={error} />
+        </Wrapper>
+      </ContentWrapper>
+    </ContentLoader>
   );
 };
 
