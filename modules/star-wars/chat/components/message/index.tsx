@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MWrapper, Wrapper, AvatarWrapper, UNWrapper, Image } from './views';
+import { MWrapper, Wrapper, AvatarWrapper, UNWrapper, Image, ImageWrapper } from './views';
 import { Avatar } from '@md-ui/avatar/main';
 // @ts-ignore
 import Modal from 'react-modal';
@@ -31,10 +31,10 @@ const customStyles = {
 const Message: React.FC<Props> = ({ images, message, avatarImg, userName, active }) => {
   // modal state
   const [modalIsOpen, setIsOpen] = React.useState(false);
-  const [currentSlide, setCurrentSlide] = useState(0)
+  const [currentSlide, setCurrentSlide] = useState(0);
   const openModal = (index: number) => {
     setIsOpen(true);
-    setCurrentSlide(index)
+    setCurrentSlide(index);
   };
 
   const closeModal = () => {
@@ -43,15 +43,15 @@ const Message: React.FC<Props> = ({ images, message, avatarImg, userName, active
 
   return (
     <Wrapper>
-        <Modal
-          isOpen={modalIsOpen}
-          // onAfterOpen={afterOpenModal}
-          onRequestClose={closeModal}
-          style={customStyles}
-          contentLabel='Example Modal'
-        >
-          <ImageSlider currentSlide={currentSlide} images={images}/>
-        </Modal>
+      <Modal
+        isOpen={modalIsOpen}
+        // onAfterOpen={afterOpenModal}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel='Example Modal'
+      >
+        <ImageSlider currentSlide={currentSlide} images={images} />
+      </Modal>
 
       <AvatarWrapper>
         <Avatar avatarImg={avatarImg} />
@@ -62,7 +62,7 @@ const Message: React.FC<Props> = ({ images, message, avatarImg, userName, active
         {images &&
         images.map((image, index) => {
           return <Image onClick={() => openModal(index)} key={image} src={image} alt='' />;
-        })}
+        })}x
       </MWrapper>
     </Wrapper>
   );

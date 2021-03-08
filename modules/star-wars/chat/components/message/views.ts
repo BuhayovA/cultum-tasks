@@ -32,11 +32,6 @@ export const AvatarWrapper = styled.div`
 `;
 
 export const Image = styled.img`
-  padding: 4px;
   max-width: 450px;
   max-height: 350px;
-`;
-
-export const SliderWrapper = styled.div`
-  
 `;

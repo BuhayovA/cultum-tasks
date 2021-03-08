@@ -17,7 +17,7 @@ export const FormBLContext = React.createContext<Context>({} as Context);
 
 const FormBLContextProvider: React.FC = ({ children }) => {
   //create all inputs type
-  const firstName = useInput('', { minLength: 5, maxLength: 50 });
+  const firstName = useInput('', { minLength: 5, maxLength: 10 });
   const lastName = useInput('', { minLength: 5, maxLength: 50 });
   const email = useInput('', { isEmail: true });
   const phone = useInput('', { minLength: 10, isPhone: true });
