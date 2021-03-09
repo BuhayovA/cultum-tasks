@@ -11,14 +11,14 @@ export const SliderWrapper = styled.div`
   align-items: center;
 `;
 export const ArrowButtonWrapper = styled.div`
-/*TODO*/  
+  /*TODO*/
 `;
 
 export const ImageWrapper = styled.div`
-  opacity: ${({active}: Props) => active ? '1' : '0'};
+  opacity: ${({ active }: Props) => (active ? '1' : '0')};
   transition-duration: 0.5s;
-  transform: ${({active}: Props) => active && 'scale(1.05)'};
-`
+  transform: ${({ active }: Props) => active && 'scale(1.05)'};
+`;
 
 export const ArrowButtonLeft = styled.img`
   position: absolute;

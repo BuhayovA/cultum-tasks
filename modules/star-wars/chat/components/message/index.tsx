@@ -13,7 +13,6 @@ interface Props {
   images: string[];
 }
 
-
 const customStyles = {
   content: {
     height: 'auto',
@@ -60,9 +59,10 @@ const Message: React.FC<Props> = ({ images, message, avatarImg, userName, active
         <UNWrapper>{userName}</UNWrapper>
         {message}
         {images &&
-        images.map((image, index) => {
-          return <Image onClick={() => openModal(index)} key={image} src={image} alt='' />;
-        })}x
+          images.map((image, index) => {
+            return <Image onClick={() => openModal(index)} key={image} src={image} alt='' />;
+          })}
+        x
       </MWrapper>
     </Wrapper>
   );

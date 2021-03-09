@@ -31,7 +31,6 @@ const ChatInput: React.FC<Props> = ({
     }
   }, [images]);
 
-
   const onDrop = useCallback((acceptedFiles) => {
     setImage(acceptedFiles.map((file: DropzoneState) => URL.createObjectURL(file)));
   }, []);
