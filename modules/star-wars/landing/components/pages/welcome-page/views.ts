@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+interface Props {
+  transform: string;
+}
+
 export const Wrapper = styled.div`
   padding: 30px 70px 30px 100px;
   min-height: 100vh;
@@ -10,8 +14,10 @@ export const Wrapper = styled.div`
   opacity: 1;
   transform: translateZ(0px);
   justify-content: space-around;
-  
-  @media screen and (max-width: 1200px) {
+  position: relative;
+  overflow: hidden;
+
+  @media screen and (max-width: 1250px) {
     flex-direction: column-reverse;
     padding-top: 100px;
   }
@@ -23,9 +29,12 @@ export const DescriptionsWrapper = styled.div`
 export const InfoWrapper = styled.div`
   position: relative;
   max-width: 500px;
-`
-
-export const Image = styled.img`
-  z-index: -1;
 `;
 
+export const Image = styled.img`
+  transform: ${({ transform }: Props) => transform};
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: all 0.1s ease;
+`;

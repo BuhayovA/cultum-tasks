@@ -14,8 +14,8 @@ export const ButtonWrapper = styled.button`
   cursor: pointer;
   transition: background ease 0.2s;
   box-shadow: rgb(0 0 0) 1px 1px 5px -3px;
-  
+
   &:hover {
     background: rgb(80, 36, 61);
   }
-`
+`;

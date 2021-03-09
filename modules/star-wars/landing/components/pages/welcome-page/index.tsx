@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 //views
 import { DescriptionsWrapper, Wrapper, Image, InfoWrapper } from './views';
 import Button from '@md-star-wars/landing/components/button';
 import Title from '@md-star-wars/landing/components/title';
 import Description from '@md-star-wars/landing/components/description';
 
-const WelcomePage = () => {
+interface Props {
+  transform: string;
+}
+
+const WelcomePage: React.FC<Props> = ({ transform }) => {
   return (
     <Wrapper>
       <DescriptionsWrapper>
@@ -16,7 +20,7 @@ const WelcomePage = () => {
         <Button>Drop us a line</Button>
       </DescriptionsWrapper>
 
-      <Image src='/static/images/illustration.png' alt='illustration' />
+      <Image transform={transform} src='/static/images/illustration.png' alt='illustration' />
     </Wrapper>
   );
 };

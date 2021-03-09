@@ -42,12 +42,7 @@ const Message: React.FC<Props> = ({ images, message, avatarImg, userName, active
 
   return (
     <Wrapper>
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel='Example Modal'
-      >
+      <Modal isOpen={modalIsOpen} onRequestClose={closeModal} style={customStyles} contentLabel='Example Modal'>
         <ImageSlider currentSlide={currentSlide} images={images} />
       </Modal>
 
