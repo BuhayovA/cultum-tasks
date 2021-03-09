@@ -44,7 +44,6 @@ const Message: React.FC<Props> = ({ images, message, avatarImg, userName, active
     <Wrapper>
       <Modal
         isOpen={modalIsOpen}
-        // onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         style={customStyles}
         contentLabel='Example Modal'
