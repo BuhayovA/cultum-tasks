@@ -17,6 +17,12 @@ export const MWrapper = styled.div`
   order: 2;
 `;
 
+export const ImagesWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+`
+
 export const Wrapper = styled.div`
   display: flex;
   padding: 4px;
@@ -32,6 +38,10 @@ export const AvatarWrapper = styled.div`
 `;
 
 export const Image = styled.img`
-  max-width: 450px;
-  max-height: 350px;
+  border-radius: 10px;
+  max-height: 200px;
+  width: 150px;
+  cursor: pointer;
+  margin: 10px 10px 0 ;
+  flex-direction: column;
 `;

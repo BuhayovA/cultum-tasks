@@ -23,7 +23,7 @@ export const Input = styled.input`
   -ms-user-select: none; /* Internet Explorer/Edge */
 `;
 
-export const ImageWrapper = styled.image`
+export const ImageWrapper = styled.div`
   cursor: pointer;
   //un select
   -webkit-touch-callout: none; /* iOS Safari */

@@ -36,7 +36,7 @@ export const ArrowButtonRight = styled.img`
   height: 50px;
   top: 50%;
   right: 32px;
-  z-index: 10;
+  z-index: 100;
   cursor: pointer;
   user-select: none;
 `;

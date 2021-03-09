@@ -1,9 +1,6 @@
-import React, { useState } from 'react';
-import { MWrapper, Wrapper, AvatarWrapper, UNWrapper, Image, ImageWrapper } from './views';
+import React from 'react';
+import { MWrapper, Wrapper, AvatarWrapper, UNWrapper, Image, ImagesWrapper } from './views';
 import { Avatar } from '@md-ui/avatar/main';
-// @ts-ignore
-import Modal from 'react-modal';
-import ImageSlider from '@md-ui/image-slider/main';
 
 interface Props {
   message: string;
@@ -11,58 +8,23 @@ interface Props {
   userName?: string;
   active: boolean;
   images: string[];
+  imgOnClick: (index: number, images: string[]) => void
 }
 
-const customStyles = {
-  content: {
-    height: 'auto',
-    overflow: 'hidden',
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-    'overflow-y': 'scroll'
-  }
-};
-
-const Message: React.FC<Props> = ({ images, message, avatarImg, userName, active }) => {
-  // modal state
-  const [modalIsOpen, setIsOpen] = React.useState(false);
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const openModal = (index: number) => {
-    setIsOpen(true);
-    setCurrentSlide(index);
-  };
-
-  const closeModal = () => {
-    setIsOpen(false);
-  };
-
+const Message: React.FC<Props> = ({ images, message, avatarImg, userName, active, imgOnClick }) => {
   return (
     <Wrapper>
-      <Modal
-        isOpen={modalIsOpen}
-        // onAfterOpen={afterOpenModal}
-        onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel='Example Modal'
-      >
-        <ImageSlider currentSlide={currentSlide} images={images} />
-      </Modal>
-
       <AvatarWrapper>
         <Avatar avatarImg={avatarImg} />
       </AvatarWrapper>
       <MWrapper active={active}>
         <UNWrapper>{userName}</UNWrapper>
-        {message}
-        {images &&
-          images.map((image, index) => {
-            return <Image onClick={() => openModal(index)} key={image} src={image} alt='' />;
+        <span>{message}</span>
+        <ImagesWrapper>
+          {images.map((image, index) => {
+            return <Image onClick={() => imgOnClick(index, images)} key={index} src={image} alt='' />;
           })}
-        x
+        </ImagesWrapper>
       </MWrapper>
     </Wrapper>
   );

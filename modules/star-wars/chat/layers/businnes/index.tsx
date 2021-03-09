@@ -7,15 +7,15 @@ interface Context {
   newMessage: string;
   addMessage: () => void;
   addTextMessage: (message: string) => void;
-  setActiveUser: (id: number) => void;
+  setActiveUser: (id: string) => void;
   addImage: (image: string[]) => void;
-  activeUser: number;
-  Images: string[];
+  activeUser: string;
+  images: string[];
 }
 
-interface State {
+interface MessagesState {
   messages: Message[];
-  Images: string[];
+  images: string[];
   newMessage: string;
 }
 
@@ -25,20 +25,20 @@ export const ChatBLContext = React.createContext<Context>({
   addMessage: () => {},
   addTextMessage: () => {},
   setActiveUser: () => {},
-  activeUser: 1,
+  activeUser: "first",
   addImage: () => {},
-  Images: []
+  images: [],
 });
 
 const ChatBLContextProvider: React.FC = ({ children }) => {
   //state for checking the active user
-  const [activeUser, setActiveUser] = useState(1);
+  const [activeUser, setActiveUser] = useState("first");
 
   //local state
-  const [messagesState, setMessagesState] = useState<State>({
+  const [messagesState, setMessagesState] = useState<MessagesState>({
     messages: [
       {
-        userId: 1,
+        userId: "first",
         userName: 'Andrew',
         id: 1,
         message: `Hello`,
@@ -46,7 +46,7 @@ const ChatBLContextProvider: React.FC = ({ children }) => {
         imgSrc: []
       },
       {
-        userId: 3,
+        userId: "second",
         userName: 'Egor',
         id: 4,
         message: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus earum omnis pariatur totam. Asperiores dicta placeat possimus sapiente sunt voluptatum.`,
@@ -54,7 +54,7 @@ const ChatBLContextProvider: React.FC = ({ children }) => {
         imgSrc: []
       },
       {
-        userId: 1,
+        userId: "third",
         userName: 'Andrew',
         id: 2,
         message: `How are you?`,
@@ -62,7 +62,7 @@ const ChatBLContextProvider: React.FC = ({ children }) => {
         imgSrc: []
       },
       {
-        userId: 1,
+        userId: "first",
         userName: 'Andrew',
         id: 3,
         message: `Happy birthday, for me`,
@@ -70,7 +70,7 @@ const ChatBLContextProvider: React.FC = ({ children }) => {
         imgSrc: []
       },
       {
-        userId: 2,
+        userId: "second",
         userName: 'Alexandr',
         id: 4,
         message: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, iure?`,
@@ -79,11 +79,11 @@ const ChatBLContextProvider: React.FC = ({ children }) => {
       }
     ],
     newMessage: '',
-    Images: []
+    images: []
   });
 
   const addMessage = () => {
-    if (messagesState.newMessage.length == 0 && messagesState.Images.length == 0) {
+    if (messagesState.newMessage.length == 0 && messagesState.images.length == 0) {
       return;
     }
 
@@ -94,14 +94,14 @@ const ChatBLContextProvider: React.FC = ({ children }) => {
     const newMessage = {
       ...checkPerson,
       message: messagesState.newMessage,
-      imgSrc: messagesState.Images
+      imgSrc: messagesState.images
     };
 
     setMessagesState(
-      (prevState): State => {
+      (prevState): MessagesState => {
         return {
           newMessage: '',
-          Images: [],
+          images: [],
           messages: [...prevState.messages, newMessage] as Message[]
         };
       }
@@ -122,7 +122,7 @@ const ChatBLContextProvider: React.FC = ({ children }) => {
     setMessagesState((prev) => {
       return {
         ...prev,
-        Images: [...messagesState.Images, ...images]
+        images: [...messagesState.images, ...images]
       };
     });
   };
@@ -135,7 +135,7 @@ const ChatBLContextProvider: React.FC = ({ children }) => {
     newMessage: messagesState.newMessage,
     activeUser,
     addImage,
-    Images: messagesState.Images
+    images: messagesState.images
   };
 
   return <ChatBLContext.Provider value={contextValue}>{children}</ChatBLContext.Provider>;
