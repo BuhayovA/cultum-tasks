@@ -52,15 +52,6 @@ const ModalWindow: React.FC<Props> = ({ action, modalIsOpen, closeModal }) => {
           <span>{action.text}</span>
         </Modal>
       );
-    case 'Form':
-      return (
-        <Modal
-          isOpen={modalIsOpen}
-          onRequestClose={closeModal}
-          style={customStyles}
-          contentLabel='Example Modal'
-        ></Modal>
-      );
   }
   return null;
 };

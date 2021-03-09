@@ -41,7 +41,7 @@ export const ChatBLContext = React.createContext<Context>({
   currentSlide: 0,
   closeModal: () => {},
   openModal: () => {},
-  chatWrapper: {current: null},
+  chatWrapper: { current: null }
 });
 
 const ChatBLContextProvider: React.FC = ({ children }) => {
@@ -168,7 +168,7 @@ const ChatBLContextProvider: React.FC = ({ children }) => {
     currentSlide,
     closeModal,
     openModal,
-    chatWrapper,
+    chatWrapper
   };
 
   return <ChatBLContext.Provider value={contextValue}>{children}</ChatBLContext.Provider>;

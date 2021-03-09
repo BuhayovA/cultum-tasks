@@ -7,12 +7,11 @@ interface Props {
 export const MWrapper = styled.div`
   white-space: normal;
   height: auto;
-  border: 1px solid #6200ee;
   transition: all ease 0.5s;
   border-radius: 10px;
   word-wrap: break-word;
   padding: 10px;
-  background: ${({ active }: Props) => (active ? '#6200ee' : '#404556')};
+  background: ${({ active }: Props) => (active ? '#306ACD' : '#404556')};
   color: white;
   order: 2;
 `;
