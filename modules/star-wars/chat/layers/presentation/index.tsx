@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from 'react';
+import React, { useContext } from 'react';
 //views
 import { Wrapper, InputWrapper, MessageWrapper, ChatWrapper, SwapPersonWrapper } from './views';
 import ChatInput from '@md-star-wars/chat/components/chat-input';
