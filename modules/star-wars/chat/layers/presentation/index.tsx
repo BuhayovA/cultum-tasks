@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 //views
 import { Wrapper, InputWrapper, MessageWrapper, ChatWrapper, SwapPersonWrapper } from './views';
 import ChatInput from '@md-star-wars/chat/components/chat-input';
@@ -7,14 +7,11 @@ import { Avatar } from '@md-ui/avatar/main';
 import ModalWindow from '@md-ui/modal/main';
 //Context
 import { ChatBLContext } from '@md-star-wars/chat/layers/businnes';
-import { useModal } from '@md-utils/modal';
 
 
 const ChatPresentation = () => {
-  const {imagesList, modalIsOpen, currentSlide, closeModal, openModal} = useModal();
-
   // use bll logic here
-  const { addMessage, addTextMessage, newMessage, messages, setActiveUser, activeUser, addImage, images } = useContext(
+  const { addMessage, addTextMessage, newMessage, messages, setActiveUser, activeUser, addImage, images, imagesList, modalIsOpen, currentSlide, closeModal, openModal } = useContext(
     ChatBLContext
   );
 

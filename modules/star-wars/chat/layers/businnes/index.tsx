@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 //type
 import { Message } from '@md-shared/types/chat';
+//utils
+import { useModal } from '@md-utils/modal';
 
 interface Context {
   messages: Message[] | undefined;
@@ -11,7 +13,12 @@ interface Context {
   addImage: (image: string[]) => void;
   activeUser: string;
   images: string[];
-}
+  imagesList: string[];
+  modalIsOpen: boolean;
+  currentSlide: number;
+  closeModal: () => void;
+  openModal: (index: number, images: string[]) => void
+ }
 
 interface MessagesState {
   messages: Message[];
@@ -28,11 +35,18 @@ export const ChatBLContext = React.createContext<Context>({
   activeUser: "first",
   addImage: () => {},
   images: [],
+  imagesList: [],
+  modalIsOpen: false,
+  currentSlide: 0,
+  closeModal: () => {},
+  openModal: () => {},
 });
 
 const ChatBLContextProvider: React.FC = ({ children }) => {
   //state for checking the active user
   const [activeUser, setActiveUser] = useState("first");
+  //modal utils
+  const {imagesList, modalIsOpen, currentSlide, closeModal, openModal} = useModal();
 
   //local state
   const [messagesState, setMessagesState] = useState<MessagesState>({
@@ -135,7 +149,12 @@ const ChatBLContextProvider: React.FC = ({ children }) => {
     newMessage: messagesState.newMessage,
     activeUser,
     addImage,
-    images: messagesState.images
+    images: messagesState.images,
+    imagesList,
+    modalIsOpen,
+    currentSlide,
+    closeModal,
+    openModal
   };
 
   return <ChatBLContext.Provider value={contextValue}>{children}</ChatBLContext.Provider>;
