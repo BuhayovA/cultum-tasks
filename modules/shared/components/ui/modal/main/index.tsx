@@ -16,7 +16,6 @@ interface ActionType {
 }
 
 const ModalWindow: React.FC<Props> = ({ action, modalIsOpen, closeModal }) => {
-
   const customStyles = {
     content: {
       height: 'auto',
@@ -26,7 +25,7 @@ const ModalWindow: React.FC<Props> = ({ action, modalIsOpen, closeModal }) => {
       right: 'auto',
       bottom: 'auto',
       marginRight: '-50%',
-      transform: 'translate(-50%, -50%)',
+      transform: 'translate(-50%, -50%)'
     }
   };
 
@@ -40,17 +39,16 @@ const ModalWindow: React.FC<Props> = ({ action, modalIsOpen, closeModal }) => {
           contentLabel='Example Modal'
           ariaHideApp={false}
         >
-          {action.images ? <ImageSlider currentSlide={action.currentSlide} images={action.images} /> : <div>Photo upload error...</div>}
+          {action.images ? (
+            <ImageSlider currentSlide={action.currentSlide} images={action.images} />
+          ) : (
+            <div>Photo upload error...</div>
+          )}
         </Modal>
       );
     case 'Text':
       return (
-        <Modal
-          isOpen={modalIsOpen}
-          onRequestClose={closeModal}
-          style={customStyles}
-          contentLabel='Example Modal'
-        >
+        <Modal isOpen={modalIsOpen} onRequestClose={closeModal} style={customStyles} contentLabel='Example Modal'>
           <span>{action.text}</span>
         </Modal>
       );
@@ -61,8 +59,7 @@ const ModalWindow: React.FC<Props> = ({ action, modalIsOpen, closeModal }) => {
           onRequestClose={closeModal}
           style={customStyles}
           contentLabel='Example Modal'
-        >
-        </Modal>
+        ></Modal>
       );
   }
   return null;

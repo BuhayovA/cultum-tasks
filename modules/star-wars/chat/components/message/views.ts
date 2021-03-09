@@ -21,7 +21,7 @@ export const ImagesWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-`
+`;
 
 export const Wrapper = styled.div`
   display: flex;
@@ -42,6 +42,6 @@ export const Image = styled.img`
   max-height: 200px;
   width: 150px;
   cursor: pointer;
-  margin: 10px 10px 0 ;
+  margin: 10px 10px 0;
   flex-direction: column;
 `;

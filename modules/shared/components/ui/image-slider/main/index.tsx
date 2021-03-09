@@ -23,15 +23,13 @@ const ImageSlider: React.FC<Props> = ({ images, currentSlide = 0 }) => {
 
   return (
     <SliderWrapper>
-        {
-          images.length > 1 &&
-          <ArrowButtonWrapper>
-            <ArrowButtonRight src='/static/images/right-arrow.svg' onClick={nextSlide} />
-            <ArrowButtonLeft src='/static/images/left-arrow.svg' onClick={prevSlide} />
-          </ArrowButtonWrapper>
-        }
-      {
-      images.map((image, index) => {
+      {images.length > 1 && (
+        <ArrowButtonWrapper>
+          <ArrowButtonRight src='/static/images/right-arrow.svg' onClick={nextSlide} />
+          <ArrowButtonLeft src='/static/images/left-arrow.svg' onClick={prevSlide} />
+        </ArrowButtonWrapper>
+      )}
+      {images.map((image, index) => {
         return (
           <ImageWrapper key={index} active={index === current}>
             {index === current && <Image src={image} />}
@@ -40,7 +38,5 @@ const ImageSlider: React.FC<Props> = ({ images, currentSlide = 0 }) => {
       })}
     </SliderWrapper>
   );
-}
-;
-
+};
 export default ImageSlider;

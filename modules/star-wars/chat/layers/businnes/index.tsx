@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 //type
 import { Message } from '@md-shared/types/chat';
 //utils
@@ -17,8 +17,9 @@ interface Context {
   modalIsOpen: boolean;
   currentSlide: number;
   closeModal: () => void;
-  openModal: (index: number, images: string[]) => void
- }
+  openModal: (index: number, images: string[]) => void;
+  chatWrapper: { current: HTMLDivElement | null };
+}
 
 interface MessagesState {
   messages: Message[];
@@ -32,7 +33,7 @@ export const ChatBLContext = React.createContext<Context>({
   addMessage: () => {},
   addTextMessage: () => {},
   setActiveUser: () => {},
-  activeUser: "first",
+  activeUser: 'first',
   addImage: () => {},
   images: [],
   imagesList: [],
@@ -40,19 +41,20 @@ export const ChatBLContext = React.createContext<Context>({
   currentSlide: 0,
   closeModal: () => {},
   openModal: () => {},
+  chatWrapper: {current: null},
 });
 
 const ChatBLContextProvider: React.FC = ({ children }) => {
   //state for checking the active user
-  const [activeUser, setActiveUser] = useState("first");
+  const [activeUser, setActiveUser] = useState('first');
   //modal utils
-  const {imagesList, modalIsOpen, currentSlide, closeModal, openModal} = useModal();
+  const { imagesList, modalIsOpen, currentSlide, closeModal, openModal } = useModal();
 
   //local state
   const [messagesState, setMessagesState] = useState<MessagesState>({
     messages: [
       {
-        userId: "first",
+        userId: 'first',
         userName: 'Andrew',
         id: 1,
         message: `Hello`,
@@ -60,7 +62,7 @@ const ChatBLContextProvider: React.FC = ({ children }) => {
         imgSrc: []
       },
       {
-        userId: "second",
+        userId: 'second',
         userName: 'Egor',
         id: 4,
         message: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus earum omnis pariatur totam. Asperiores dicta placeat possimus sapiente sunt voluptatum.`,
@@ -68,7 +70,7 @@ const ChatBLContextProvider: React.FC = ({ children }) => {
         imgSrc: []
       },
       {
-        userId: "third",
+        userId: 'third',
         userName: 'Andrew',
         id: 2,
         message: `How are you?`,
@@ -76,7 +78,7 @@ const ChatBLContextProvider: React.FC = ({ children }) => {
         imgSrc: []
       },
       {
-        userId: "first",
+        userId: 'first',
         userName: 'Andrew',
         id: 3,
         message: `Happy birthday, for me`,
@@ -84,7 +86,7 @@ const ChatBLContextProvider: React.FC = ({ children }) => {
         imgSrc: []
       },
       {
-        userId: "second",
+        userId: 'second',
         userName: 'Alexandr',
         id: 4,
         message: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, iure?`,
@@ -96,6 +98,17 @@ const ChatBLContextProvider: React.FC = ({ children }) => {
     images: []
   });
 
+  // Get a ref to the chat wrapper to control the scroll
+  const chatWrapper = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (chatWrapper && chatWrapper.current) {
+      const heightX = chatWrapper.current.scrollHeight;
+      chatWrapper.current.scrollTo(0, heightX);
+    }
+  }, [messagesState]);
+
+  //methods
   const addMessage = () => {
     if (messagesState.newMessage.length == 0 && messagesState.images.length == 0) {
       return;
@@ -154,7 +167,8 @@ const ChatBLContextProvider: React.FC = ({ children }) => {
     modalIsOpen,
     currentSlide,
     closeModal,
-    openModal
+    openModal,
+    chatWrapper,
   };
 
   return <ChatBLContext.Provider value={contextValue}>{children}</ChatBLContext.Provider>;
