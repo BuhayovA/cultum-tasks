@@ -28,17 +28,14 @@ const ImageSlider: React.FC<Props> = ({ images, currentSlide = 0 }) => {
         <ArrowButtonRight src='/static/images/right-arrow.svg' onClick={nextSlide} />
         <ArrowButtonLeft src='/static/images/left-arrow.svg' onClick={prevSlide} />
       </ArrowButtonWrapper>
-      {
-        images &&
+      {images &&
         images.map((image, index) => {
           return (
             <ImageWrapper key={index} active={index === current}>
-              {index === current &&
-              <Image src={image} />}
+              {index === current && <Image src={image} />}
             </ImageWrapper>
           );
-        })
-      }
+        })}
     </SliderWrapper>
   );
 };

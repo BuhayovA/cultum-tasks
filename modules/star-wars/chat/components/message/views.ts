@@ -37,6 +37,4 @@ export const Image = styled.img`
   max-height: 350px;
 `;
 
-export const SliderWrapper = styled.div`
-  
-`;
+export const SliderWrapper = styled.div``;

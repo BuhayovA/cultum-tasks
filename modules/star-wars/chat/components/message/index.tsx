@@ -13,7 +13,6 @@ interface Props {
   images: string[];
 }
 
-
 const customStyles = {
   content: {
     height: 'auto',
@@ -31,10 +30,10 @@ const customStyles = {
 const Message: React.FC<Props> = ({ images, message, avatarImg, userName, active }) => {
   // modal state
   const [modalIsOpen, setIsOpen] = React.useState(false);
-  const [currentSlide, setCurrentSlide] = useState(0)
+  const [currentSlide, setCurrentSlide] = useState(0);
   const openModal = (index: number) => {
     setIsOpen(true);
-    setCurrentSlide(index)
+    setCurrentSlide(index);
   };
 
   const closeModal = () => {
@@ -43,15 +42,15 @@ const Message: React.FC<Props> = ({ images, message, avatarImg, userName, active
 
   return (
     <Wrapper>
-        <Modal
-          isOpen={modalIsOpen}
-          // onAfterOpen={afterOpenModal}
-          onRequestClose={closeModal}
-          style={customStyles}
-          contentLabel='Example Modal'
-        >
-          <ImageSlider currentSlide={currentSlide} images={images}/>
-        </Modal>
+      <Modal
+        isOpen={modalIsOpen}
+        // onAfterOpen={afterOpenModal}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel='Example Modal'
+      >
+        <ImageSlider currentSlide={currentSlide} images={images} />
+      </Modal>
 
       <AvatarWrapper>
         <Avatar avatarImg={avatarImg} />
@@ -60,9 +59,9 @@ const Message: React.FC<Props> = ({ images, message, avatarImg, userName, active
         <UNWrapper>{userName}</UNWrapper>
         {message}
         {images &&
-        images.map((image, index) => {
-          return <Image onClick={() => openModal(index)} key={image} src={image} alt='' />;
-        })}
+          images.map((image, index) => {
+            return <Image onClick={() => openModal(index)} key={image} src={image} alt='' />;
+          })}
       </MWrapper>
     </Wrapper>
   );
