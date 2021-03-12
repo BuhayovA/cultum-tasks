@@ -11,15 +11,21 @@ export const Wrapper = styled.div`
   flex-direction: column;
   -webkit-box-align: center;
   align-items: center;
-  z-index: -1;
+  padding-top: 90px;
+  z-index: 1;
   display: flex;
   transform: translateZ(0px);
 
+  &:before {
+    position: absolute;
+    inset: 0px;
+  }
 `;
 
 export const MoonContentWrapper = styled.div`
   position: relative;
   min-height: 500px;
+  margin-top: 200px;
   width: 100%;
   height: 100%;
   padding: 15vh 30px 10px;
@@ -30,35 +36,37 @@ export const MoonContentWrapper = styled.div`
   align-items: center;
   -webkit-box-pack: justify;
   justify-content: space-between;
+  z-index: 1;
   flex: 1 1 0%;
-  
   &:before{
     content: "";
     position: absolute;
     inset: 0px;
-    background: url(/static/images/moon.png) center  no-repeat;
-    background-position: bottom;
+    //background-size: 50%;
+    background: url(/static/images/moon.png) center top / cover no-repeat;
     z-index: -1;
   }
+  
 `;
 
 
 export const BTWrapper = styled.div`
-  max-width: 50vh;
-  top: 400px;
+  max-width: 500px;
+  width: 100%;
+  z-index: 3;
   text-align: center;
-  position: absolute;
+  margin-top: 100px;
 `;
 
-export const DescriptionsWrapper = styled.div`
-  margin-top: 10vh;
-`;
 export const AstronautImage = styled.img`
   width: 230px;
   position: absolute;
-  top: 70px;
-  left: 53%;
+  top: -95px;
+  left: 52%;
   transform: translate3d(-40%, -35%, 0px);
   z-index: 2;
-  object-fit: cover;
+`;
+
+export const DescriptionWrapper = styled.div`
+  margin-top: 10vh;
 `;

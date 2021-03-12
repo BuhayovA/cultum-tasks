@@ -42,6 +42,7 @@ const LandingPresentation = () => {
         {/*TODO move the logic of checkpoints into a separate component */}
         <ProjectsPattern position={inProjectsPageArea} scrollPosition={scrollPosition}>
           <Image src='/static/images/earth.png' alt='adas' />
+
           <CheckPoint rotate='45deg'></CheckPoint>
           <CheckPoint rotate='90deg'></CheckPoint>
           <CheckPoint rotate='135deg'></CheckPoint>

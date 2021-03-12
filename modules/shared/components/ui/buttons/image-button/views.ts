@@ -1,14 +1,16 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
-  max-width: 400px;
-  max-height: 35px;
+interface Props {
+  size?: 'small' | 'medium' | 'large';
+}
+
+
+export const Wrapper = styled.div<Props>`
+  ${({ size }) => size}
   display: flex;
   -webkit-box-align: center;
   align-items: center;
-  font-size: 12px;
   color: rgb(255, 128, 118);
-  //padding: 3px;
   cursor: pointer;
   transition: opacity 0.2s ease-in-out 0s;
   margin-top: 80px;

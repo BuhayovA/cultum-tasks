@@ -5,6 +5,10 @@ export const Wrapper = styled.div`
   z-index: 1;
   background: linear-gradient(to right, rgb(55, 26, 58) 6%, rgb(122, 53, 71));
   backface-visibility: hidden;
+  @media screen and (max-width: 754px) {
+    //display: inline-block;
+    //width: 500px;
+  }
 `;
 export const SectionWrapper = styled.div`
   min-height: 100vh;
@@ -12,36 +16,35 @@ export const SectionWrapper = styled.div`
   transform: translateZ(0px);
   padding-left: 250px;
   display: flex;
-  -webkit-box-align: center;
   align-items: center;
   justify-content: space-around;
   @media screen and (max-width: 1250px) {
-    -webkit-flex-direction: column-reverse;
-    -ms-flex-direction: column-reverse;
     flex-direction: column-reverse;
   }
+  
   @media screen and (max-width: 700px) {
     padding-left: 0px;
-    text-align: center;
-  }
-
-  @media screen and (max-width: 754px) {
-    img {
-      width: 500px;
+    span {
+      width: 250px;
     }
-  }
-  @media screen and (max-width: 700px) {
-    img {
-      width: 400px;
+    img  {
+      max-height: 300px;
     }
   }
 `;
 export const ProjectsInfoWrapper = styled.div`
   @media screen and (max-width: 600px) {
-    width: 50%;
+    width: 100%;
     font-size: 10px;
     align-items: center;
     justify-content: center;
     text-align: center;
+  }
+  @media screen and (max-width: 700px) {
+    padding-left: 0px;
+    width: 60%;
+    span {
+      max-width: 250px;
+    }
   }
 `;

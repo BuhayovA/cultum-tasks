@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
   background: rgb(255, 255, 255);
   padding: 150px 50px 0 0;
 
-  @media screen and (max-width: 1470px) {
+  @media screen and (max-width: 1000px) {
     flex-direction: column;
   }
 `;
@@ -37,9 +37,9 @@ export const TitleWrapper = styled.div`
   max-width: 350px;
   margin: 0px 50px;
 
-  @media screen and (max-width: 1470px) {
-    max-width: 100vh;
-  }
+  //@media screen and (max-width: 1000px) {
+  //  max-width: 100vh;
+  //}
   @media screen and (max-width: 700px) {
     text-align: center;
   }

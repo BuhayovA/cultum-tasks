@@ -18,8 +18,20 @@ export const Wrapper = styled.div`
     flex-direction: column-reverse;
   }
   @media screen and (max-width: 700px) {
+    margin-top: 50px;
+    span {
+      width: 250px;
+    }
     img {
-      width: 300px;
+      max-width: 350px;
+    }
+  }
+  @media screen and (max-width: 400px) {
+    span {
+      width: 250px;
+    }
+    img {
+      max-width: 350px;
     }
   }
 `;

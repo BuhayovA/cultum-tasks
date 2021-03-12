@@ -14,7 +14,7 @@ const AboutUsSection = () => {
             challenge in the sphere of web and mobile app development.
           </SubTitle>
         </SubTitleWrapper>
-        <ImageButton>More about us</ImageButton>
+        <ImageButton size='medium'>More about us</ImageButton>
       </div>
       <img src='/static/images/spaceship-illustration.png' alt='' />
     </Wrapper>

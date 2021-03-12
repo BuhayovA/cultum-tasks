@@ -61,4 +61,8 @@ export const SkillRowWrapper = styled.div`
     grid-template-columns: 500px;
     padding: 10vh 0 0 50px;
   }
+  @media screen and (max-width: 450px) {
+    grid-template-columns: 400px;
+    padding: 10vh 0 0 30px;
+  }
 `;
