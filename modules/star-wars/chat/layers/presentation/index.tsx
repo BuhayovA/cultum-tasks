@@ -40,7 +40,7 @@ const ChatPresentation = () => {
           uploadImages={Images}
           placeholder='Start typing...'
           startIcon={'/static/images/photo-camera.svg'}
-          endIcon={'/static/images/send-button.svg'}
+          endIcon={'/static/images/send-buttons.svg'}
         />
       </InputWrapper>
 

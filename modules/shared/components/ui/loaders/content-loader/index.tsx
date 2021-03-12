@@ -32,7 +32,7 @@ const ContentLoader: React.FC<Props> = ({ position, children, isLoading, error }
 const Wrapper = styled.div`
   ${({ theme }) => theme.templates.absolute};
   ${({ theme }) => theme.templates.centerContent};
-  position: ${({ position }) => position};
+  position: ${({ position }: {position?: string}) => position};
 `;
 
 export { ContentLoader };

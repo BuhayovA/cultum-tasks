@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120px" height="96px" viewBox="0 0 120 96" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.1 (51147) - http://www.bohemiancoding.com/sketch -->
+    <title>Right planet</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="12.7942434%" y1="20.583907%" x2="71.1917395%" y2="58.543688%" id="linearGradient-1">
+            <stop stop-color="#FF7BAC" offset="0%"></stop>
+            <stop stop-color="#2F517A" offset="100%"></stop>
+        </linearGradient>
+        <filter x="-100.0%" y="-100.0%" width="300.0%" height="300.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feGaussianBlur stdDeviation="1" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <linearGradient x1="-1.11022302e-14%" y1="50%" x2="100%" y2="50%" id="linearGradient-3">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="23.4051862%" y1="77.1571548%" x2="100%" y2="50%" id="linearGradient-4">
+            <stop stop-color="#FFA16C" offset="0%"></stop>
+            <stop stop-color="#FFEFBA" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Cultum-home" transform="translate(-1201.000000, -414.000000)">
+            <g id="Landing" transform="translate(98.000000, 45.000000)">
+                <g id="Right-planet" transform="translate(1098.000000, 369.000000)">
+                    <circle id="Oval-2-Copy" fill="url(#linearGradient-1)" cx="65" cy="48" r="48"></circle>
+                    <circle id="Oval-3" fill="#FFFFFF" cx="36.5" cy="42.5" r="1.5"></circle>
+                    <circle id="Oval-3-Copy" fill="#FFFFFF" cx="66.5" cy="12.5" r="1.5"></circle>
+                    <circle id="Oval-3-Copy-3" fill="#FFFFFF" filter="url(#filter-2)" cx="61.5" cy="43.5" r="1.5"></circle>
+                    <path d="M61.0657074,79.0646009 C60.953519,78.9498839 60.9885601,78.8365411 61.1435954,78.8127014 L62.3880374,78.6218051 C62.5430727,78.5980252 62.7271665,78.4582735 62.7971916,78.3112923 L63.3702697,77.1107066 C63.4395541,76.9633072 63.5533948,76.9630682 63.6231921,77.1101689 L64.2028225,78.3105156 C64.2734174,78.457198 64.458024,78.5965912 64.6130593,78.6203114 L65.8563048,78.811387 C66.0113401,78.8352863 66.0464951,78.9488084 65.9344207,79.063645 L65.0247206,80.0079695 C64.9133299,80.123523 64.8439885,80.3505074 64.8706539,80.5124258 L65.0843189,81.8099832 C65.1109843,81.9719015 65.0190228,82.0422255 64.8801121,81.9662254 L63.7385142,81.3526087 C63.5992046,81.2774451 63.3717511,81.2786998 63.2331822,81.3552974 L62.1231498,81.9689141 C61.9844669,82.0455116 61.8923916,81.9756059 61.9184302,81.8135681 L62.1254858,80.4896019 C62.1509547,80.3275043 62.0799609,80.1011173 61.9676016,79.9865198 L61.0657074,79.0646009 Z" id="Shape-Copy" fill="#FFFFFF" fill-rule="nonzero"></path>
+                    <path d="M65.7796462,25 L111,28 L66.5399725,26.8 C65.6209043,26.6241937 65.1140201,26.4241937 65.01932,26.2 C64.9246198,25.9758063 65.1780619,25.5758063 65.7796462,25 Z" id="Path-3" fill="url(#linearGradient-3)" transform="translate(88.000000, 26.500000) rotate(-80.000000) translate(-88.000000, -26.500000) "></path>
+                    <path d="M19.318685,38.0000008 C19.0905755,39.9107087 18.9731828,41.8558824 18.9731828,43.8287732 C18.9731828,44.2796509 19.0005735,44.699945 19.0544259,45.0912115 C16.6613416,46.416377 15.3436838,47.8646781 15.3436838,49.3818819 C15.3436838,55.7073574 38.2471467,60.8351685 66.5,60.8351685 C94.7528533,60.8351685 117.656316,55.7073574 117.656316,49.3818819 C117.656316,47.9034767 116.405188,46.4904953 114.127051,45.1931153 C114.190623,44.7731609 114.223006,44.3190469 114.223006,43.8287732 C114.223006,41.8702837 114.107321,39.9391081 113.882482,38.0418485 C127.490631,40.8838459 136,44.9350503 136,49.4314632 C136,58.0297286 104.88379,65 66.5,65 C28.1162099,65 -3,58.0297286 -3,49.4314632 C-3,44.9129344 5.59328261,40.8440046 19.318685,38.0000008 Z" id="Ring-1" fill="url(#linearGradient-4)" transform="translate(66.500000, 51.500000) rotate(-32.000000) translate(-66.500000, -51.500000) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

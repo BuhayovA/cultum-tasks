@@ -23,7 +23,7 @@ const FormBLContextProvider: React.FC = ({ children }) => {
   const phone = useInput('', { minLength: 10, isPhone: true });
   const password = useInput('', { isCapital: true, isSymbol: true });
 
-  //func will be call button onclick on Submit
+  //func will be call buttons onclick on Submit
   const onSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
