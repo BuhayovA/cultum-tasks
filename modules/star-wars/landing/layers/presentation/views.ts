@@ -66,6 +66,7 @@ export const CheckedPoint = styled.img`
   transform-origin: center calc((32.5vh + 5.5px) - 1px);
   transform: translate3d(-10%, 0px, 0px) rotateZ(${({ rotate }: Props) => rotate && rotate});
 `;
+
 export const AboutUsContainer = styled.div``;
 
 export const FooterContainer = styled.div`

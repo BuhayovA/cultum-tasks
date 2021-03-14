@@ -4,14 +4,14 @@ export const Wrapper = styled.div`
   padding: 30px 70px 30px 100px;
   position: relative;
   margin: 0 auto;
-  min-height: 100vh;
+  max-height: 100vh;
   height: 100vh;
   display: flex;
   align-items: center;
   z-index: 1;
   opacity: 1;
   justify-content: space-evenly;
-
+  box-sizing: border-box;
   @media screen and (max-width: 1250px) {
     -webkit-flex-direction: column-reverse;
     -ms-flex-direction: column-reverse;
@@ -23,15 +23,7 @@ export const Wrapper = styled.div`
       width: 250px;
     }
     img {
-      max-width: 350px;
-    }
-  }
-  @media screen and (max-width: 400px) {
-    span {
-      width: 250px;
-    }
-    img {
-      max-width: 350px;
+      width: 90%;
     }
   }
 `;

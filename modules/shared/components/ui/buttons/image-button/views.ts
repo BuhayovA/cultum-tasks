@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 interface Props {
-  size?: 'small' | 'medium' | 'large';
+  size?: string;
 }
 
 

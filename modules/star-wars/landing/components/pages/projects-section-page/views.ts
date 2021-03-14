@@ -27,8 +27,10 @@ export const SectionWrapper = styled.div`
     span {
       width: 250px;
     }
+  }
+  @media screen and (max-width: 800px) {
     img  {
-      max-height: 300px;
+      width: 90%;
     }
   }
 `;
@@ -42,7 +44,7 @@ export const ProjectsInfoWrapper = styled.div`
   }
   @media screen and (max-width: 700px) {
     padding-left: 0px;
-    width: 60%;
+    max-width: 60%;
     span {
       max-width: 250px;
     }

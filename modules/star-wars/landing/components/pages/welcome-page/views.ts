@@ -20,7 +20,6 @@ export const Wrapper = styled.div`
   @media screen and (max-width: 1250px) {
     flex-direction: column-reverse;
     //padding-top: 350px;
-    
   }
 `;
 export const DescriptionsWrapper = styled.div`
@@ -49,7 +48,7 @@ export const LeftPlanet = styled.img`
   width: 15%;
   top: -5%;
   left: 15%;
-  z-index: 1;
+  z-index: 5;
 `;
 
 export const RightPlanet = styled.img`

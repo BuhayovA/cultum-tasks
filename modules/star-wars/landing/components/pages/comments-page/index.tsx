@@ -28,7 +28,7 @@ const CommentsPage: React.FC<Props> = ({ commentsState, nextSlide, prevSlide, sl
   /*TODO move the slider into a separate component*/
   return (
     <Wrapper>
-      <TitleWrapper>
+      <TitleWrapper>g
         <Title>Seems like our clients love us…</Title>
       </TitleWrapper>
       <SliderWrapper>
