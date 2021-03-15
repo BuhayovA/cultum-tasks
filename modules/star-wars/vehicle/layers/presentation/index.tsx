@@ -17,7 +17,6 @@ const VehiclePresentation: React.FC = () => {
         return (
           <VehicleInfo
             key={e.name}
-            id={e.id}
             name={e.name}
             passengers={e.passengers}
             maxAtmospheringSpeed={e.maxAtmospheringSpeed}
