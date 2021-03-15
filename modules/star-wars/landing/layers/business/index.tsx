@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
-import Slider from 'react-slick';
+import React, { useEffect, useState } from 'react';
 import { Comment } from '@md-shared/types/comment';
+import { useScrollPagination } from '@md-shared/hooks/orbitPagination';
 
 interface Context {
   transform: {
@@ -9,51 +9,22 @@ interface Context {
   };
   handleScroll: (e: React.UIEvent<HTMLElement>) => void;
   inProjectsPageArea: boolean;
-  scrollPosition: string;
-  rotate: string;
+  positionPagination: string | undefined;
+  initialPage: 'first' | 'second' | 'third';
   commentsState: Comment[];
-  nextSlide: () => void;
-  prevSlide: () => void;
-  sliderRef: { current: Slider | null };
 }
 
 export const LandingBLContext = React.createContext<Context>({
   transform: { x: 0, y: 0 },
   handleScroll: () => {},
   inProjectsPageArea: false,
-  scrollPosition: '0',
-  rotate: '45deg',
-  commentsState: [],
-  nextSlide: () => {},
-  prevSlide: () => {},
-  sliderRef: { current: null }
+  positionPagination: '0',
+  initialPage: 'first',
+  commentsState: []
 });
 
 const LandingBLContextProvider: React.FC = ({ children }) => {
-  const [inProjectsPageArea, setInProjectsPageArea] = useState(false);
-  const [scrollPosition, setScrollPosition] = useState('127.925px');
-  const [rotate, setRotate] = useState('45deg');
-
-  const handleScroll = (e: React.UIEvent<HTMLElement>) => {
-    e.currentTarget.scrollTop >= window.innerHeight && e.currentTarget.scrollTop < 3 * window.innerHeight
-      ? setInProjectsPageArea(true)
-      : setInProjectsPageArea(false);
-
-    if (e.currentTarget.scrollTop + window.innerHeight <= e.currentTarget.scrollHeight - 6 * window.innerHeight + 300) {
-      setRotate('45deg');
-    } else if (
-      e.currentTarget.scrollTop + window.innerHeight <=
-      e.currentTarget.scrollHeight - 5 * window.innerHeight + 300
-    ) {
-      setRotate('90deg');
-    } else {
-      setRotate('135deg');
-    }
-    e.currentTarget.scrollTop < 3 * window.innerHeight
-      ? setScrollPosition('127.925px')
-      : setScrollPosition(`${window.innerHeight * 2 + 100}px`);
-  };
-
+  const { handleScroll, inProjectsPageArea, positionPagination, initialPage } = useScrollPagination(8, 1, '127.925px');
   // parallax effect
   const [transform, setTransform] = useState({ x: 0, y: 0 });
   const mouseHandler = (e: MouseEvent) => {
@@ -97,17 +68,6 @@ const LandingBLContextProvider: React.FC = ({ children }) => {
       comment: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
     }
   ];
-  //ref to slider
-  const sliderRef = useRef<Slider>(null);
-  /*TODO add types */
-  const nextSlide = () => {
-    // @ts-ignore
-    sliderRef.current.slickNext();
-  };
-  const prevSlide = () => {
-    // @ts-ignore
-    sliderRef.current.slickPrev();
-  };
 
   return (
     <LandingBLContext.Provider
@@ -115,12 +75,9 @@ const LandingBLContextProvider: React.FC = ({ children }) => {
         transform,
         handleScroll,
         inProjectsPageArea,
-        scrollPosition,
-        rotate,
-        commentsState,
-        nextSlide,
-        prevSlide,
-        sliderRef
+        positionPagination,
+        initialPage,
+        commentsState
       }}
     >
       {children}

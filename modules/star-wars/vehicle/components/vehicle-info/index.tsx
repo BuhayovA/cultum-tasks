@@ -3,13 +3,12 @@ import React from 'react';
 import { Wrapper, DWrapper, ImgWrapper, Image, TitleWrapper } from './views';
 
 interface Props {
-  id: string;
   name: string;
   passengers: string;
   maxAtmospheringSpeed: number;
 }
 
-const VehicleInfo: React.FC<Props> = ({ id, name, maxAtmospheringSpeed, passengers }) => {
+const VehicleInfo: React.FC<Props> = ({ name, maxAtmospheringSpeed, passengers }) => {
   return (
     <>
       <TitleWrapper>{name}</TitleWrapper>

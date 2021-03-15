@@ -6,7 +6,6 @@ import Description from '@md-ui/description';
 import Title from '@md-ui/titles/main';
 import Button from '@md-ui/buttons/main';
 
-
 interface Props {
   transform: { x: number; y: number };
 }

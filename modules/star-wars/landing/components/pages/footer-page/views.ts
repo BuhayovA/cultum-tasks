@@ -38,17 +38,15 @@ export const MoonContentWrapper = styled.div`
   justify-content: space-between;
   z-index: 1;
   flex: 1 1 0%;
-  &:before{
-    content: "";
+  &:before {
+    content: '';
     position: absolute;
     inset: 0px;
     //background-size: 50%;
     background: url(/static/images/moon.png) center top / cover no-repeat;
     z-index: -1;
   }
-  
 `;
-
 
 export const BTWrapper = styled.div`
   max-width: 500px;

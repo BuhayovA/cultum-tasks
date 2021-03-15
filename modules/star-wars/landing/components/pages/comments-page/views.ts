@@ -18,15 +18,7 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const SliderWrapper = styled.div`
-  max-width: 100vh;
-  position: relative;
-  height: auto;
-  color: rgb(84, 75, 75);
-  margin: 0px;
-  padding: 10px 50px;
-  display: block;
-`;
+export const SliderWrapper = styled.div``;
 
 export const TitleWrapper = styled.div`
   position: relative;
@@ -43,13 +35,4 @@ export const TitleWrapper = styled.div`
   @media screen and (max-width: 700px) {
     text-align: center;
   }
-`;
-
-export const ArrowButtonsWrapper = styled.div`
-  //background: white;
-  //width: 100%;
-  display: flex;
-  position: inherit;
-  bottom: 100px;
-  left: 70vh;
 `;

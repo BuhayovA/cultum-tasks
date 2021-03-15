@@ -3,7 +3,6 @@ import React from 'react';
 import SubTitle from '@md-modules/shared/components/ui/sub-title';
 import ImageButton from '@md-ui/buttons/image-button';
 
-
 const AboutUsSection = () => {
   return (
     <Wrapper>

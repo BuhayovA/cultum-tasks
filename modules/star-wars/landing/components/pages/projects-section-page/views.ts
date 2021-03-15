@@ -21,7 +21,7 @@ export const SectionWrapper = styled.div`
   @media screen and (max-width: 1250px) {
     flex-direction: column-reverse;
   }
-  
+
   @media screen and (max-width: 700px) {
     padding-left: 0px;
     span {
@@ -29,7 +29,7 @@ export const SectionWrapper = styled.div`
     }
   }
   @media screen and (max-width: 800px) {
-    img  {
+    img {
       width: 90%;
     }
   }

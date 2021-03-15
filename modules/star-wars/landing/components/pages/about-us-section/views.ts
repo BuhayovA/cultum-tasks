@@ -16,11 +16,13 @@ export const Wrapper = styled.div`
     -webkit-flex-direction: column-reverse;
     -ms-flex-direction: column-reverse;
     flex-direction: column-reverse;
+    margin-top: 50px;
+    padding: 30px 50px 70px 50px;
   }
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 600px) {
     margin-top: 50px;
     span {
-      width: 250px;
+      max-width: 250px;
     }
     img {
       width: 90%;

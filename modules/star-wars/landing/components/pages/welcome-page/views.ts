@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   padding: 30px 70px 30px 100px;
   position: relative;
   min-height: 100vh;
-  height: 100vh;
+  height: 100%;
   display: flex;
   align-items: center;
   z-index: 1;
@@ -18,14 +18,15 @@ export const Wrapper = styled.div`
   overflow: hidden;
 
   @media screen and (max-width: 1250px) {
+    max-height: 100%;
+    overflow: visible;
     flex-direction: column-reverse;
-    //padding-top: 350px;
+    padding-top: 100px;
   }
 `;
 export const DescriptionsWrapper = styled.div`
   flex-flow: column;
   @media screen and (max-width: 1250px) {
-    width: 100%;
     text-align: center;
   }
 `;

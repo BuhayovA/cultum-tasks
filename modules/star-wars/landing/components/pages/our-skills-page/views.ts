@@ -51,12 +51,12 @@ export const SkillRowWrapper = styled.div`
   padding-top: 60px;
   display: grid;
   grid-template-columns: 400px 400px;
-  
+
   @media screen and (max-width: 1300px) {
     grid-template-columns: 100vh;
     padding: 10vh 0 0 50px;
   }
-  
+
   @media screen and (max-width: 600px) {
     grid-template-columns: 500px;
     padding: 10vh 0 0 50px;

@@ -1,14 +1,5 @@
 import styled from 'styled-components';
 
-interface Props {
-  width?: string;
-  height?: string;
-  top?: string;
-  left?: string;
-  zIndex?: string;
-  backgroundColor?: string;
-}
-
 export const Wrapper = styled.div`
   position: relative;
   display: flex;

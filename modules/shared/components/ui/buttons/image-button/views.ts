@@ -1,12 +1,50 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 interface Props {
-  size?: string;
+  size?: 'small' | 'medium' | 'large';
 }
 
+const small = css`
+  max-width: 200px;
+  max-height: 10px;
+  font-size: 8px;
+  img {
+    max-width: 40px;
+    max-height: 10px;
+  }
+`;
+const medium = css`
+  max-width: 400px;
+  max-height: 10px;
+  font-size: 12px;
+  img {
+    max-width: 40px;
+    max-height: 10px;
+  }
+`;
+const large = css`
+  max-width: 600px;
+  max-height: 55px;
+  font-size: 18px;
+  img {
+    width: 75px;
+    height: 20px;
+  }
+`;
 
 export const Wrapper = styled.div<Props>`
-  ${({ size }) => size}
+  ${({ size }) => {
+    switch (size) {
+      case 'large':
+        return large;
+      case 'medium':
+        return medium;
+      case 'small':
+        return small;
+      default:
+        return medium;
+    }
+  }}
   display: flex;
   -webkit-box-align: center;
   align-items: center;
