@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Comment } from '@md-shared/types/comment';
 import { useScrollPagination } from '@md-shared/hooks/orbitPagination';
 
@@ -27,7 +27,8 @@ const LandingBLContextProvider: React.FC = ({ children }) => {
   const { handleScroll, inProjectsPageArea, positionPagination, initialPage } = useScrollPagination(8, 1, '127.925px');
   // parallax effect
   const [transform, setTransform] = useState({ x: 0, y: 0 });
-  const mouseHandler = (e: MouseEvent) => {
+
+  const mouseHandler = useCallback((e: MouseEvent) => {
     const x = e.clientX / window.innerWidth;
     const y = e.clientY / window.innerHeight;
     setTransform((prevState) => ({
@@ -35,7 +36,8 @@ const LandingBLContextProvider: React.FC = ({ children }) => {
       x: -(x * 50),
       y: -(y * 50)
     }));
-  };
+  }, []);
+
   //mouse event did mount and will unmount
   useEffect(() => {
     window.addEventListener('mousemove', mouseHandler);
