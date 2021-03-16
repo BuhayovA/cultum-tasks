@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 interface Props {
-  active: boolean;
+  active?: boolean;
 }
 
-export const Image = styled.img`
+export const Image = styled.img<Props>`
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -13,7 +13,7 @@ export const Image = styled.img`
   user-select: none;
   padding: 2px;
   cursor: pointer;
-  border: ${({ active }: Props) => (active ? '2px solid #0070f3' : 'none')};
+  border: ${({ active }) => (active ? '2px solid #0070f3' : 'none')};
   transition: all ease 0.25ms;
 
   //un select

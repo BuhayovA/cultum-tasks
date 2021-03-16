@@ -2,22 +2,18 @@ import React, { useEffect, useRef, useState } from 'react';
 //type
 import { Message } from '@md-shared/types/chat';
 //utils
-import { useModal } from '@md-utils/modal';
+
+type ActiveUser = 'first' | 'second' | 'third';
 
 interface Context {
   messages: Message[] | undefined;
   newMessage: string;
   addMessage: () => void;
   addTextMessage: (message: string) => void;
-  setActiveUser: (id: string) => void;
+  setActiveUser: (id: ActiveUser) => void;
   addImage: (image: string[]) => void;
-  activeUser: string;
+  activeUser: ActiveUser;
   images: string[];
-  imagesList: string[];
-  modalIsOpen: boolean;
-  currentSlide: number;
-  closeModal: () => void;
-  openModal: (index: number, images: string[]) => void;
   chatWrapper: { current: HTMLDivElement | null };
 }
 
@@ -36,20 +32,10 @@ export const ChatBLContext = React.createContext<Context>({
   activeUser: 'first',
   addImage: () => {},
   images: [],
-  imagesList: [],
-  modalIsOpen: false,
-  currentSlide: 0,
-  closeModal: () => {},
-  openModal: () => {},
   chatWrapper: { current: null }
 });
 
 const ChatBLContextProvider: React.FC = ({ children }) => {
-  //state for checking the active user
-  const [activeUser, setActiveUser] = useState('first');
-  //modal utils
-  const { imagesList, modalIsOpen, currentSlide, closeModal, openModal } = useModal();
-
   //local state
   const [messagesState, setMessagesState] = useState<MessagesState>({
     messages: [
@@ -97,6 +83,11 @@ const ChatBLContextProvider: React.FC = ({ children }) => {
     newMessage: '',
     images: []
   });
+
+  //state for checking the active user
+  const [activeUser, setActiveUser] = useState<ActiveUser>('first');
+  //modal utils
+  /*TODO use a modal hook here*/
 
   // Get a ref to the chat wrapper to control the scroll
   const chatWrapper = useRef<HTMLDivElement>(null);
@@ -163,11 +154,6 @@ const ChatBLContextProvider: React.FC = ({ children }) => {
     activeUser,
     addImage,
     images: messagesState.images,
-    imagesList,
-    modalIsOpen,
-    currentSlide,
-    closeModal,
-    openModal,
     chatWrapper
   };
 

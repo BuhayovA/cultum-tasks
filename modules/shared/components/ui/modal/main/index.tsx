@@ -3,19 +3,18 @@ import ImageSlider from '@md-ui/image-slider/main';
 import Modal from 'react-modal';
 
 interface Props {
-  modalIsOpen: boolean;
   closeModal: () => void;
   action: ActionType;
 }
 
-interface ActionType {
-  type: string;
-  images?: string[];
+export interface ActionType {
+  type: 'ImageSlider' | 'Text';
+  data: string[] | string | undefined;
   currentSlide?: number;
-  text?: string;
+  modalIsOpen: boolean;
 }
 
-const ModalWindow: React.FC<Props> = ({ action, modalIsOpen, closeModal }) => {
+const ModalWindow: React.FC<Props> = ({ action, closeModal }) => {
   const customStyles = {
     content: {
       height: 'auto',
@@ -33,23 +32,32 @@ const ModalWindow: React.FC<Props> = ({ action, modalIsOpen, closeModal }) => {
     case 'ImageSlider':
       return (
         <Modal
-          isOpen={modalIsOpen}
+          isOpen={action.modalIsOpen}
           onRequestClose={closeModal}
           style={customStyles}
           contentLabel='Example Modal'
           ariaHideApp={false}
         >
-          {action.images ? (
-            <ImageSlider currentSlide={action.currentSlide} images={action.images} />
+          {action.data ? (
+            <ImageSlider currentSlide={action.currentSlide} images={action.data} />
           ) : (
-            <div>Photo upload error...</div>
+            <div>Upload error...</div>
           )}
         </Modal>
       );
     case 'Text':
       return (
-        <Modal isOpen={modalIsOpen} onRequestClose={closeModal} style={customStyles} contentLabel='Example Modal'>
-          <span>{action.text}</span>
+        <Modal
+          isOpen={action.modalIsOpen}
+          onRequestClose={closeModal}
+          style={{
+            ...customStyles,
+            content: { ...customStyles.content, overflowY: 'scroll', maxHeight: '70vh', maxWidth: '70vh' }
+          }}
+          contentLabel='Example Modal'
+          ariaHideApp={false}
+        >
+          <span>{action.data}</span>
         </Modal>
       );
   }

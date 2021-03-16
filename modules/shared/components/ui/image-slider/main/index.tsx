@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ArrowButtonLeft, ArrowButtonRight, ArrowButtonWrapper, SliderWrapper, Image, ImageWrapper } from './views';
 
 interface Props {
-  images: string[];
+  images: string[] | string;
   currentSlide?: number;
 }
 

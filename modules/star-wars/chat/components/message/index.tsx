@@ -8,7 +8,7 @@ interface Props {
   userName?: string;
   active: boolean;
   images: string[];
-  imgOnClick: (index: number, images: string[]) => void;
+  imgOnClick: (images: string[], index: number) => void;
 }
 
 const Message: React.FC<Props> = ({ images, message, avatarImg, userName, active, imgOnClick }) => {
@@ -22,7 +22,7 @@ const Message: React.FC<Props> = ({ images, message, avatarImg, userName, active
         <span>{message}</span>
         <ImagesWrapper>
           {images.map((image, index) => {
-            return <Image onClick={() => imgOnClick(index, images)} key={index} src={image} alt='' />;
+            return <Image onClick={() => imgOnClick(images, index)} key={index} src={image} alt='' />;
           })}
         </ImagesWrapper>
       </MWrapper>

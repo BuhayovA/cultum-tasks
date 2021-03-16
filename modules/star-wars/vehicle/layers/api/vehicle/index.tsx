@@ -24,7 +24,7 @@ export const VehicleAPIContext = React.createContext<Context>({
 const VehicleAPIContextProvider: React.FC = ({ children }) => {
   const { query } = useRouter();
   // make api call here
-  const { error, loading, data, refetch } = useQuery<GetVehicleResponse, GetVehicleVariables>(GET_VEHICLE_QUERY, {
+  const { error, loading, data } = useQuery<GetVehicleResponse, GetVehicleVariables>(GET_VEHICLE_QUERY, {
     variables: { id: query.id as string }
   });
   return (

@@ -9,7 +9,7 @@ interface Props {
   maxAtmospheringSpeed: number;
 }
 
-const VehicleInfo: React.FC<Props> = ({ id, name, maxAtmospheringSpeed, passengers }) => {
+const VehicleInfo: React.FC<Props> = ({ name, maxAtmospheringSpeed, passengers }) => {
   return (
     <>
       <TitleWrapper>{name}</TitleWrapper>

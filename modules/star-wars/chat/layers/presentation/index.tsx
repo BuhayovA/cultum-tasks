@@ -4,9 +4,10 @@ import { Wrapper, InputWrapper, MessageWrapper, ChatWrapper, SwapPersonWrapper }
 import ChatInput from '@md-star-wars/chat/components/chat-input';
 import Message from '@md-star-wars/chat/components/message';
 import { Avatar } from '@md-ui/avatar/main';
-import ModalWindow from '@md-ui/modal/main';
+import ModalWindow from '@md-ui/modal/main/index';
 //Context
 import { ChatBLContext } from '@md-star-wars/chat/layers/businnes';
+import { useModal } from '@md-utils/modal';
 
 const ChatPresentation = () => {
   // use bll logic here
@@ -19,13 +20,10 @@ const ChatPresentation = () => {
     setActiveUser,
     activeUser,
     addImage,
-    images,
-    imagesList,
-    modalIsOpen,
-    currentSlide,
-    closeModal,
-    openModal
+    images
   } = useContext(ChatBLContext);
+
+  const { action, openModal, closeModal } = useModal<string>({ type: 'ImageSlider' });
 
   return (
     <Wrapper>
@@ -46,11 +44,7 @@ const ChatPresentation = () => {
         </MessageWrapper>
       </ChatWrapper>
 
-      <ModalWindow
-        action={{ type: 'ImageSlider', images: imagesList, currentSlide: currentSlide }}
-        closeModal={closeModal}
-        modalIsOpen={modalIsOpen}
-      />
+      <ModalWindow action={action} closeModal={closeModal} />
 
       <InputWrapper>
         <ChatInput

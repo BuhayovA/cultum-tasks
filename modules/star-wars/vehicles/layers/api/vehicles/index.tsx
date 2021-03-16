@@ -23,7 +23,7 @@ export const VehiclesAPIContext = createContext<Context>({
 
 const VehiclesAPIContextProvider: React.FC = ({ children }) => {
   // make api call here
-  const { data, loading, refetch, error } = useQuery<GetVehiclesResponse, GetVehiclesVariables>(GET_VEHICLES_QUERY, {
+  const { data, loading, error } = useQuery<GetVehiclesResponse, GetVehiclesVariables>(GET_VEHICLES_QUERY, {
     variables: { first: 6 }
   });
 
