@@ -78,9 +78,7 @@ export const ImageWrapper = styled.div`
   max-width: 600px;
   width: 90%;
   display: flex;
-  -webkit-box-align: center;
   align-items: center;
-  -webkit-box-pack: center;
   justify-content: center;
   max-height: calc(100vh - 60px);
 `;

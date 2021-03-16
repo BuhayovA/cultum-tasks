@@ -9,7 +9,6 @@ export const Wrapper = styled.div`
   color: rgb(255, 255, 255);
   overflow: hidden;
   flex-direction: column;
-  -webkit-box-align: center;
   align-items: center;
   padding-top: 90px;
   z-index: 1;
@@ -32,9 +31,7 @@ export const MoonContentWrapper = styled.div`
   justify-self: flex-end;
   display: flex;
   flex-direction: column;
-  -webkit-box-align: center;
   align-items: center;
-  -webkit-box-pack: justify;
   justify-content: space-between;
   z-index: 1;
   flex: 1 1 0%;
@@ -42,7 +39,6 @@ export const MoonContentWrapper = styled.div`
     content: '';
     position: absolute;
     inset: 0px;
-    //background-size: 50%;
     background: url(/static/images/moon.png) center top / cover no-repeat;
     z-index: -1;
   }
