@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 interface Props {
+  background: string;
   transform: { x: number; y: number };
 }
 
@@ -42,24 +43,34 @@ export const Image = styled.img`
   z-index: 2;
 `;
 
-export const LeftPlanet = styled.img`
-  transform: ${({ transform }: Props) => `translate(${transform.x / 5}px,${transform.y / 5}px)`};
+export const LeftPlanet = styled.img.attrs<Props>(({ transform }) => ({
+  style: {
+    transform: `translate3d(${transform.x / 5}px,${transform.y / 5}px, 0px)`
+  }
+}))`
   position: absolute;
   max-width: 50px;
   width: 15%;
   top: -5%;
   left: 15%;
   z-index: 5;
+  background: ${({ background }: Props) => background};
 `;
 
-export const RightPlanet = styled.img`
-  transform: ${({ transform }: Props) => `translate(${transform.x}px,${transform.y}px)`};
+export const RightPlanet = styled.img.attrs<Props>(({ transform }) => {
+  return {
+    style: {
+      transform: `translate3d(${transform.x}px,${transform.y}px, 0px)`
+    }
+  };
+})`
   position: absolute;
   max-width: 120px;
   width: 25%;
   top: 30%;
   right: 0px;
   z-index: 5;
+  background: ${({ background }: Props) => background};
 `;
 
 export const ImageWrapper = styled.div`

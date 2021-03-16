@@ -21,8 +21,9 @@ const WelcomePage: React.FC<Props> = ({ transform }) => {
         <Button>Drop us a line</Button>
       </DescriptionsWrapper>
       <ImageWrapper>
-        <LeftPlanet transform={transform} src='/static/images/left-planet.svg' />
-        <RightPlanet transform={transform} src='/static/images/right-planet.svg' />
+        {/*TODO*/}
+        <LeftPlanet transform={transform} background={''} src='/static/images/left-planet.svg' />
+        <RightPlanet transform={transform} background={''} src='/static/images/right-planet.svg' />
         <Image src='/static/images/cultum.svg' alt='illustration' />
       </ImageWrapper>
     </Wrapper>
