@@ -2,9 +2,8 @@ import { useCallback, useState } from 'react';
 import { ModalAction } from '@md-shared/types/modal';
 
 export interface ModalState<A> {
-  data: A[] | A | undefined;
+  state: { data: A | A[] | undefined; currentSlide?: number };
   modalIsOpen: boolean;
-  currentSlide?: number;
 }
 
 interface actionParam {
@@ -19,9 +18,8 @@ export interface ReturnUseModal<A> {
 
 export const useModal = <A>({ type }: actionParam): ReturnUseModal<A> => {
   const [modalState, setModalState] = useState<ModalState<A>>({
-    data: undefined,
-    modalIsOpen: false,
-    currentSlide: 1
+    state: { data: undefined },
+    modalIsOpen: false
   });
 
   const closeModal = useCallback(() => {
@@ -33,11 +31,10 @@ export const useModal = <A>({ type }: actionParam): ReturnUseModal<A> => {
 
   switch (type) {
     case 'ImageSlider': {
-      const openModal = useCallback((data, index) => {
+      const openModal = useCallback((data: A | A[], index?: number) => {
         setModalState((prev) => ({
           ...prev,
-          data: data,
-          currentSlide: index,
+          state: { data: data, currentSlide: index },
           modalIsOpen: true
         }));
       }, []);
@@ -45,8 +42,7 @@ export const useModal = <A>({ type }: actionParam): ReturnUseModal<A> => {
       return {
         action: {
           type: 'ImageSlider',
-          data: modalState.data,
-          currentSlide: modalState.currentSlide,
+          state: { data: modalState.state.data, currentSlide: modalState.state.currentSlide },
           modalIsOpen: modalState.modalIsOpen
         },
         openModal,
@@ -54,10 +50,10 @@ export const useModal = <A>({ type }: actionParam): ReturnUseModal<A> => {
       };
     }
     case 'Text': {
-      const openModal = useCallback((data) => {
+      const openModal = useCallback((data: A | A[]) => {
         setModalState((prev) => ({
           ...prev,
-          data: data,
+          state: { data },
           modalIsOpen: true
         }));
       }, []);
@@ -65,7 +61,7 @@ export const useModal = <A>({ type }: actionParam): ReturnUseModal<A> => {
       return {
         action: {
           type: 'Text',
-          data: modalState.data,
+          state: modalState.state,
           modalIsOpen: modalState.modalIsOpen
         },
         openModal,

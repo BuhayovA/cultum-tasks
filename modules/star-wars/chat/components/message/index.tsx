@@ -8,7 +8,7 @@ interface Props {
   userName?: string;
   active: boolean;
   images: string[];
-  imgOnClick: (images: string[], index: number) => void;
+  imgOnClick: (data: string[], index: number) => void;
 }
 
 const Message: React.FC<Props> = ({ images, message, avatarImg, userName, active, imgOnClick }) => {

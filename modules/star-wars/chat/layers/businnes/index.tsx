@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 //type
 import { Message } from '@md-shared/types/chat';
 //utils
@@ -14,7 +14,6 @@ interface Context {
   addImage: (image: string[]) => void;
   activeUser: ActiveUser;
   images: string[];
-  chatWrapper: { current: HTMLDivElement | null };
 }
 
 interface MessagesState {
@@ -31,8 +30,7 @@ export const ChatBLContext = React.createContext<Context>({
   setActiveUser: () => {},
   activeUser: 'first',
   addImage: () => {},
-  images: [],
-  chatWrapper: { current: null }
+  images: []
 });
 
 const ChatBLContextProvider: React.FC = ({ children }) => {
@@ -86,18 +84,6 @@ const ChatBLContextProvider: React.FC = ({ children }) => {
 
   //state for checking the active user
   const [activeUser, setActiveUser] = useState<ActiveUser>('first');
-  //modal utils
-  /*TODO use a modal hook here*/
-
-  // Get a ref to the chat wrapper to control the scroll
-  const chatWrapper = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (chatWrapper && chatWrapper.current) {
-      const heightX = chatWrapper.current.scrollHeight;
-      chatWrapper.current.scrollTo(0, heightX);
-    }
-  }, [messagesState]);
 
   //methods
   const addMessage = () => {
@@ -153,8 +139,7 @@ const ChatBLContextProvider: React.FC = ({ children }) => {
     newMessage: messagesState.newMessage,
     activeUser,
     addImage,
-    images: messagesState.images,
-    chatWrapper
+    images: messagesState.images
   };
 
   return <ChatBLContext.Provider value={contextValue}>{children}</ChatBLContext.Provider>;

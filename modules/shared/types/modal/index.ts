@@ -1,6 +1,5 @@
 export interface ModalAction<A> {
-  data: A[] | A | undefined;
   type: 'ImageSlider' | 'Text';
-  currentSlide?: number;
+  state: { data: A[] | A | undefined; currentSlide?: number };
   modalIsOpen: boolean;
 }

@@ -9,8 +9,7 @@ interface Props {
 
 export interface ActionType {
   type: 'ImageSlider' | 'Text';
-  data: string[] | string | undefined;
-  currentSlide?: number;
+  state: { data: string[] | string | undefined; currentSlide?: number };
   modalIsOpen: boolean;
 }
 
@@ -38,8 +37,8 @@ const ModalWindow: React.FC<Props> = ({ action, closeModal }) => {
           contentLabel='Example Modal'
           ariaHideApp={false}
         >
-          {action.data ? (
-            <ImageSlider currentSlide={action.currentSlide} images={action.data} />
+          {action.state.data ? (
+            <ImageSlider currentSlide={action.state.currentSlide} images={action.state.data} />
           ) : (
             <div>Upload error...</div>
           )}
@@ -57,7 +56,7 @@ const ModalWindow: React.FC<Props> = ({ action, closeModal }) => {
           contentLabel='Example Modal'
           ariaHideApp={false}
         >
-          <span>{action.data}</span>
+          <span>{action.state}</span>
         </Modal>
       );
   }

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 //views
 import { Wrapper, InputWrapper, MessageWrapper, ChatWrapper, SwapPersonWrapper } from './views';
 import ChatInput from '@md-star-wars/chat/components/chat-input';
@@ -11,19 +11,19 @@ import { useModal } from '@md-utils/modal';
 
 const ChatPresentation = () => {
   // use bll logic here
-  const {
-    addMessage,
-    chatWrapper,
-    addTextMessage,
-    newMessage,
-    messages,
-    setActiveUser,
-    activeUser,
-    addImage,
-    images
-  } = useContext(ChatBLContext);
+  const { addMessage, addTextMessage, newMessage, messages, setActiveUser, activeUser, addImage, images } = useContext(
+    ChatBLContext
+  );
 
   const { action, openModal, closeModal } = useModal<string>({ type: 'ImageSlider' });
+  // lower the scroll
+  const chatWrapper = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (chatWrapper && chatWrapper.current) {
+      const heightX = chatWrapper.current.scrollHeight;
+      chatWrapper.current.scrollTo(0, heightX);
+    }
+  }, [messages]);
 
   return (
     <Wrapper>
