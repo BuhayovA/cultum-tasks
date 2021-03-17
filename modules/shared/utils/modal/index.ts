@@ -1,6 +1,9 @@
+//utils
 import { useCallback, useState } from 'react';
+//type
 import { ModalAction } from '@md-shared/types/modal';
 
+// types
 export interface ModalState<A> {
   state: { data: A | A[] | undefined; currentSlide?: number };
   modalIsOpen: boolean;
@@ -29,6 +32,7 @@ export const useModal = <A>({ type }: actionParam): ReturnUseModal<A> => {
     }));
   }, []);
 
+  // if you want use Image slider
   switch (type) {
     case 'ImageSlider': {
       const openModal = useCallback((data: A | A[], index?: number) => {
@@ -42,13 +46,15 @@ export const useModal = <A>({ type }: actionParam): ReturnUseModal<A> => {
       return {
         action: {
           type: 'ImageSlider',
-          state: { data: modalState.state.data, currentSlide: modalState.state.currentSlide },
+          state: modalState.state,
           modalIsOpen: modalState.modalIsOpen
         },
         openModal,
         closeModal
       };
     }
+
+    // if you want to use text
     case 'Text': {
       const openModal = useCallback((data: A | A[]) => {
         setModalState((prev) => ({
