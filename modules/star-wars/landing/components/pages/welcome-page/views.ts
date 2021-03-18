@@ -19,10 +19,9 @@ export const Wrapper = styled.div`
   overflow: hidden;
 
   @media screen and (max-width: 1250px) {
-    max-height: 100%;
     overflow: visible;
+    padding: 10px;
     flex-direction: column-reverse;
-    padding-top: 100px;
   }
 `;
 export const DescriptionsWrapper = styled.div`

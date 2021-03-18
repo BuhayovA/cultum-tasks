@@ -1,5 +1,8 @@
-import React, { useCallback, useEffect, useState } from 'react';
+//hooks
+import React, { useCallback, useState } from 'react';
+//types
 import { Comment } from '@md-shared/types/comment';
+//hooks
 import { useScrollPagination } from '@md-shared/hooks/orbitPagination';
 
 interface Context {
@@ -12,6 +15,7 @@ interface Context {
   positionPagination: string | undefined;
   initialPage: 'first' | 'second' | 'third';
   commentsState: Comment[];
+  mouseHandler: (e: MouseEvent) => void;
 }
 
 export const LandingBLContext = React.createContext<Context>({
@@ -20,7 +24,8 @@ export const LandingBLContext = React.createContext<Context>({
   inProjectsPageArea: false,
   positionPagination: '0',
   initialPage: 'first',
-  commentsState: []
+  commentsState: [],
+  mouseHandler: () => {}
 });
 
 const LandingBLContextProvider: React.FC = ({ children }) => {
@@ -36,15 +41,6 @@ const LandingBLContextProvider: React.FC = ({ children }) => {
       x: -(x * 50),
       y: -(y * 50)
     }));
-  }, []);
-
-  //mouse event did mount and will unmount
-  useEffect(() => {
-    window.addEventListener('mousemove', mouseHandler);
-
-    return () => {
-      window.removeEventListener('mousemove', mouseHandler);
-    };
   }, []);
 
   //local comments state
@@ -79,7 +75,8 @@ const LandingBLContextProvider: React.FC = ({ children }) => {
         inProjectsPageArea,
         positionPagination,
         initialPage,
-        commentsState
+        commentsState,
+        mouseHandler
       }}
     >
       {children}

@@ -1,3 +1,16 @@
+//Context
+import React, { useContext } from 'react';
+import { LandingBLContext } from '@md-star-wars/landing/layers/business';
+//all pages
+import WelcomePage from '@md-star-wars/landing/components/pages/welcome-page';
+import ProjectsPage from '@md-star-wars/landing/components/pages/projects-section-page';
+import AboutUsSection from '@md-star-wars/landing/components/pages/about-us-section';
+import CommentsPage from '../../components/pages/comments-page';
+import FooterPage from '../../components/pages/footer-page/index';
+import OurSkillsPage from '@md-star-wars/landing/components/pages/our-skills-page';
+import OrbitPagination from '@md-star-wars/landing/components/orbitPagination';
+//views
+import { Header } from '../../../../shared/layouts/landing-header/main/index';
 import {
   Wrapper,
   ProjectsContainer,
@@ -6,26 +19,22 @@ import {
   LinesCopy,
   FooterContainer
 } from './views';
-import React, { useContext } from 'react';
-import WelcomePage from '@md-star-wars/landing/components/pages/welcome-page';
-import { Header } from '../../../../shared/layouts/landing-header/main/index';
-import { LandingBLContext } from '@md-star-wars/landing/layers/business';
-import ProjectsPage from '@md-star-wars/landing/components/pages/projects-section-page';
-import AboutUsSection from '@md-star-wars/landing/components/pages/about-us-section';
-import CommentsPage from '../../components/pages/comments-page';
-import FooterPage from '../../components/pages/footer-page/index';
-import OurSkillsPage from '@md-star-wars/landing/components/pages/our-skills-page';
-import OrbitPagination from '@md-star-wars/landing/components/orbitPagination';
 
 const LandingPresentation = () => {
-  const { transform, handleScroll, inProjectsPageArea, positionPagination, initialPage, commentsState } = useContext(
-    LandingBLContext
-  );
+  const {
+    transform,
+    handleScroll,
+    inProjectsPageArea,
+    positionPagination,
+    initialPage,
+    commentsState,
+    mouseHandler
+  } = useContext(LandingBLContext);
 
   return (
     <Wrapper onScroll={(e) => handleScroll(e)}>
       <Header>
-        <WelcomePage transform={transform} />
+        <WelcomePage transform={transform} mouseHandler={mouseHandler} />
       </Header>
       <ProjectsContainer>
         <LinesCopy top='60%' src='/static/images/lines-copy-2.png' alt='lines-2' />

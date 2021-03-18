@@ -1,4 +1,4 @@
-import { Wrapper, SubTitleWrapper } from './views';
+import { Wrapper, SubTitleWrapper, Image, ButtonWrapper } from './views';
 import React from 'react';
 import SubTitle from '@md-modules/shared/components/ui/sub-title';
 import ImageButton from '@md-ui/buttons/image-button';
@@ -13,9 +13,11 @@ const AboutUsSection = () => {
             challenge in the sphere of web and mobile app development.
           </SubTitle>
         </SubTitleWrapper>
-        <ImageButton size='medium'>More about us</ImageButton>
+        <ButtonWrapper>
+          <ImageButton size='medium'>More about us</ImageButton>
+        </ButtonWrapper>
       </div>
-      <img src='/static/images/spaceship-illustration.png' alt='' />
+      <Image src='/static/images/spaceship-illustration.png' alt='' />
     </Wrapper>
   );
 };

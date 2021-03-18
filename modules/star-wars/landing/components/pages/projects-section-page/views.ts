@@ -24,9 +24,6 @@ export const SectionWrapper = styled.div`
 
   @media screen and (max-width: 700px) {
     padding-left: 0px;
-    span {
-      width: 250px;
-    }
   }
   @media screen and (max-width: 800px) {
     img {

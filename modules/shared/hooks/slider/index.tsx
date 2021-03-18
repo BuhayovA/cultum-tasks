@@ -1,14 +1,19 @@
 import { useCallback, useRef } from 'react';
 import Slider from 'react-slick';
 
-export const useSlider = () => {
-  const sliderRef = useRef<Slider>(null);
+interface returnUseSlider {
+  prevSlide: () => void;
+  nextSlide: () => void;
+  sliderRef: Slider | null;
+}
 
+export const useSlider = (): returnUseSlider => {
+  const sliderRef = useRef<Slider>(null).current;
   const nextSlide = useCallback(() => {
-    sliderRef.current && sliderRef.current.slickNext();
+    sliderRef && sliderRef.slickNext();
   }, []);
   const prevSlide = useCallback(() => {
-    sliderRef.current && sliderRef.current.slickPrev();
+    sliderRef && sliderRef.slickPrev();
   }, []);
 
   return {

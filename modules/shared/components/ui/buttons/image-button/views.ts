@@ -45,6 +45,9 @@ export const Wrapper = styled.div<Props>`
         return medium;
     }
   }}
+  min-width: 200px;
+  width: 50%;
+  max-width: 300px;
   display: flex;
   -webkit-box-align: center;
   align-items: center;
