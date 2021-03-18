@@ -1,6 +1,8 @@
 import { useCallback, useRef } from 'react';
 import Slider from 'react-slick';
 
+// TODO: add types for useSlider here | useSlider = (): TYPE => ...
+
 export const useSlider = () => {
   const sliderRef = useRef<Slider>(null);
 

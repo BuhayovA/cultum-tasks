@@ -45,6 +45,8 @@ const OurSkillsPage = () => {
           <ImageButton>all services</ImageButton>
         </Header>
         <SkillRowWrapper>
+          {/*// TODO: should be array of items here with map */}
+
           <SkillItem
             title='Web Development'
             image='/static/images/web-dev.png'

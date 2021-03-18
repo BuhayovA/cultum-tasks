@@ -21,6 +21,8 @@ export const Wrapper = styled.div`
   }
   @media screen and (max-width: 600px) {
     margin-top: 50px;
+
+    // TODO: you should not use span or image without class or styled component wrapper!!!
     span {
       max-width: 250px;
     }

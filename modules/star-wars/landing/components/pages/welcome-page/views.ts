@@ -38,6 +38,7 @@ export const InfoWrapper = styled.div`
 `;
 
 export const Image = styled.img`
+  // TODO: are you sure that image should have 500px on any device ??
   width: 500px;
   max-height: inherit;
   z-index: 2;

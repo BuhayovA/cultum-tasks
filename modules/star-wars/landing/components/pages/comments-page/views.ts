@@ -28,6 +28,7 @@ export const TitleWrapper = styled.div`
   line-height: 1;
   max-width: 350px;
   margin: 0px 50px;
+  // TODO: comments should be removed from the release
 
   //@media screen and (max-width: 1000px) {
   //  max-width: 100vh;

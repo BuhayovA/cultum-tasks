@@ -15,6 +15,7 @@ const AboutUsSection = () => {
         </SubTitleWrapper>
         <ImageButton size='medium'>More about us</ImageButton>
       </div>
+      {/*// TODO: ALT SHOULD BE ALWAYS PRESENT ON img tag*/}
       <img src='/static/images/spaceship-illustration.png' alt='' />
     </Wrapper>
   );

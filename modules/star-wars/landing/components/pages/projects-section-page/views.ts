@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
   z-index: 1;
   background: linear-gradient(to right, rgb(55, 26, 58) 6%, rgb(122, 53, 71));
   backface-visibility: hidden;
+  // TODO: find issue by yourself
   @media screen and (max-width: 754px) {
     //display: inline-block;
     //width: 500px;
@@ -45,6 +46,7 @@ export const ProjectsInfoWrapper = styled.div`
   @media screen and (max-width: 700px) {
     padding-left: 0px;
     max-width: 60%;
+    // TODO: find issue by yourself
     span {
       max-width: 250px;
     }

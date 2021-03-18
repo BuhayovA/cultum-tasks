@@ -30,13 +30,14 @@ const LandingPresentation = () => {
       <ProjectsContainer>
         <LinesCopy top='60%' src='/static/images/lines-copy-2.png' alt='lines-2' />
         <LinesCopy top='20%' src='/static/images/lines-copy_2.png' alt='lines-1' />
-
+        {/* TODO: Should be in a separate component with memo */}
         <OrbitPagination
           inProjectsPageArea={inProjectsPageArea}
           positionPagination={positionPagination}
           initialPage={initialPage}
         >
           <ProjectsPageContainer>
+            {/* TODO: Should be array of items */}
             <ProjectsPage
               subTitle={'Web development - Node.js and React.'}
               img={'/static/images/picture-1.png'}
@@ -58,6 +59,7 @@ const LandingPresentation = () => {
           </ProjectsPageContainer>
         </OrbitPagination>
       </ProjectsContainer>
+      {/* TODO: Should be in a separate component with memo */}
       <AboutUsContainer>
         <AboutUsSection />
         <OurSkillsPage />

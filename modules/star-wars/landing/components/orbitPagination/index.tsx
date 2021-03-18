@@ -18,7 +18,7 @@ const OrbitPagination: React.FC<Props> = ({ children, inProjectsPageArea, positi
     <>
       <PaginationWrapper position={inProjectsPageArea} positionPagination={positionPagination}>
         <Image src='/static/images/earth.png' alt='earth' />
-
+        {/* TODO: XML tag has empty body  */}
         <CheckPoint rotate='45deg'></CheckPoint>
         <CheckPoint rotate='90deg'></CheckPoint>
         <CheckPoint rotate='135deg'></CheckPoint>

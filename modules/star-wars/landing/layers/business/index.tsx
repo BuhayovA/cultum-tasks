@@ -39,6 +39,7 @@ const LandingBLContextProvider: React.FC = ({ children }) => {
   }, []);
 
   //mouse event did mount and will unmount
+  // TODO: use only in the component of the first section! to not affect on each section on the page
   useEffect(() => {
     window.addEventListener('mousemove', mouseHandler);
 
@@ -47,7 +48,7 @@ const LandingBLContextProvider: React.FC = ({ children }) => {
     };
   }, []);
 
-  //local comments state
+  // TODO: should be in constants or out of component function
   const commentsState = [
     {
       name: 'Andrew',
