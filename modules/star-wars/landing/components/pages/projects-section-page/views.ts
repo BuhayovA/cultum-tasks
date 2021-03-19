@@ -6,8 +6,6 @@ export const Wrapper = styled.div`
   background: linear-gradient(to right, rgb(55, 26, 58) 6%, rgb(122, 53, 71));
   backface-visibility: hidden;
   @media screen and (max-width: 754px) {
-    //display: inline-block;
-    //width: 500px;
   }
 `;
 export const SectionWrapper = styled.div`
@@ -22,28 +20,32 @@ export const SectionWrapper = styled.div`
     flex-direction: column-reverse;
   }
 
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 1000px) {
     padding-left: 0px;
   }
+`;
+
+export const Image = styled.img`
   @media screen and (max-width: 800px) {
-    img {
-      width: 90%;
-    }
+    width: 95%;
   }
 `;
+
 export const ProjectsInfoWrapper = styled.div`
   @media screen and (max-width: 600px) {
-    width: 100%;
+    width: 100vh;
+    font-size: 12px;
+    justify-content: center;
+    text-align: center;
+  }
+  @media screen and (max-width: 350px) {
+    width: 100vh;
     font-size: 10px;
-    align-items: center;
     justify-content: center;
     text-align: center;
   }
   @media screen and (max-width: 700px) {
     padding-left: 0px;
-    max-width: 60%;
-    span {
-      max-width: 250px;
-    }
+    max-width: 70%;
   }
 `;

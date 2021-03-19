@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
 interface Props {
-  position?: boolean;
+  position?: string;
   positionPagination?: string;
   rotate?: string;
 }
 
-export const PaginationWrapper = styled.div`
-  position: ${({ position }: Props) => (position ? 'fixed' : 'absolute')};
+export const PaginationWrapper = styled.div<Props>`
+  position: ${({ position }) => (position ? position : 'absolute')};
   z-index: 10;
   right: 100%;
   top: ${({ positionPagination }) => positionPagination};
@@ -16,8 +16,9 @@ export const PaginationWrapper = styled.div`
   transform: translateX(190px);
   border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 50%;
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 1000px) {
     display: none;
+    padding: 10px;
   }
 `;
 
@@ -28,7 +29,7 @@ export const Image = styled.img`
   transform: translateY(-50%) translateX(100%);
 `;
 
-export const CheckPoint = styled.span`
+export const CheckPoint = styled.span<Props>`
   position: absolute;
   width: 11px;
   height: 11px;
@@ -38,14 +39,14 @@ export const CheckPoint = styled.span`
   left: 50%;
   cursor: pointer;
   transform-origin: center calc((32.5vh + 5.5px) - 1px);
-  transform: translate3d(-50%, -50%, 0px) rotateZ(${({ rotate }: Props) => rotate && rotate});
+  transform: translate3d(-50%, -50%, 0px) rotateZ(${({ rotate }) => rotate && rotate});
 `;
-export const CheckedPoint = styled.img`
+export const CheckedPoint = styled.img<Props>`
   transition: transform ease 1s;
   position: absolute;
   border-radius: 50%;
   left: 50%;
   cursor: pointer;
   transform-origin: center calc((32.5vh + 5.5px) - 1px);
-  transform: translate3d(-10%, 0px, 0px) rotateZ(${({ rotate }: Props) => rotate && rotate});
+  transform: translate3d(-10%, 0px, 0px) rotateZ(${({ rotate }) => rotate && rotate});
 `;

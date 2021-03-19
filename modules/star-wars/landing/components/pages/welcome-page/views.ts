@@ -37,7 +37,6 @@ export const InfoWrapper = styled.div`
 `;
 
 export const Image = styled.img`
-  width: 500px;
   max-height: inherit;
   z-index: 2;
 `;

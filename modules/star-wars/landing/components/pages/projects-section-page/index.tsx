@@ -1,6 +1,6 @@
 import React from 'react';
-import { SectionWrapper, Wrapper, ProjectsInfoWrapper } from './views';
-import SubTitle from '../../../../../shared/components/ui/sub-title';
+import { SectionWrapper, Wrapper, ProjectsInfoWrapper, Image } from './views';
+import SubTitle from '@md-ui/sub-title';
 import Description from '@md-ui/description';
 import ProjectsTitle from '@md-ui/titles/projects-title';
 import ImageButton from '@md-ui/buttons/image-button';
@@ -20,9 +20,11 @@ const ProjectsPage: React.FC<Props> = ({ title, subTitle, descriptions, img }) =
           <ProjectsTitle>{title}</ProjectsTitle>
           <SubTitle>{subTitle}</SubTitle>
           <Description>{descriptions}</Description>
-          <ImageButton>view projects</ImageButton>
+          <div>
+            <ImageButton>view projects</ImageButton>
+          </div>
         </ProjectsInfoWrapper>
-        <img src={img} alt='picture' />
+        <Image src={img} alt='picture' />
       </SectionWrapper>
     </Wrapper>
   );

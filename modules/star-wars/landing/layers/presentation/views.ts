@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
   overflow-x: hidden;
 `;
 
-export const ProjectsContainer = styled.div`
+export const ProjectsWrapper = styled.div`
   position: relative;
   z-index: 1;
   background: linear-gradient(to right, rgb(55, 26, 58) 6%, rgb(122, 53, 71));
@@ -30,17 +30,10 @@ export const Image = styled.img`
   transform: translateY(-50%) translateX(100%);
 `;
 
-export const AboutUsContainer = styled.div``;
-
 export const FooterContainer = styled.div`
   position: relative;
   z-index: 1;
   height: 100vh;
-`;
-
-export const ProjectsPageContainer = styled.div`
-  position: relative;
-  z-index: 1;
 `;
 
 export const LinesCopy = styled.img`

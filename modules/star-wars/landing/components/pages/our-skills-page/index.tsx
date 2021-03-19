@@ -1,9 +1,33 @@
 import React from 'react';
-import { Devises, Wrapper, OurSkillsContent, Header, TitleWrapper, SkillRowWrapper } from './views';
+import { Devises, Wrapper, OurSkillsContent, Header, TitleWrapper, SkillRowWrapper, ButtonWrapper } from './views';
 import SkillCard from '@md-ui/card/main';
 import Title from '@md-ui/titles/main';
 import ImageButton from '@md-ui/buttons/image-button';
 import SkillItem from '@md-ui/card/skill-item';
+
+/*TODO bring the array to the constants file*/
+const SkillsList = [
+  {
+    title: 'Web Development',
+    image: '/static/images/web-dev.png',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing.'
+  },
+  {
+    title: 'Mobile Development',
+    image: '/static/images/mobile.png',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing.'
+  },
+  {
+    title: 'E-commerce',
+    image: '/static/images/e-commerce.png',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing.'
+  },
+  {
+    title: 'SAAS',
+    image: '/static/images/saas.png',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing.'
+  }
+];
 
 const OurSkillsPage = () => {
   return (
@@ -42,29 +66,14 @@ const OurSkillsPage = () => {
           <TitleWrapper>
             <Title>There are a couple of things we do really well.</Title>
           </TitleWrapper>
-          <ImageButton>all services</ImageButton>
+          <ButtonWrapper>
+            <ImageButton>all services</ImageButton>
+          </ButtonWrapper>
         </Header>
         <SkillRowWrapper>
-          <SkillItem
-            title='Web Development'
-            image='/static/images/web-dev.png'
-            description={'Lorem ipsum dolor sit amet, consectetur adipisicing.'}
-          />
-          <SkillItem
-            title='Mobile Development'
-            image='/static/images/mobile.png'
-            description={'Lorem ipsum dolor sit amet, consectetur adipisicing.'}
-          />
-          <SkillItem
-            title='E-commerce'
-            image='/static/images/e-commerce.png'
-            description={'Lorem ipsum dolor sit amet, consectetur adipisicing.'}
-          />
-          <SkillItem
-            title='SAAS'
-            image='/static/images/saas.png'
-            description={'Lorem ipsum dolor sit amet, consectetur adipisicing.'}
-          />
+          {SkillsList.map((skill, index) => (
+            <SkillItem key={index} title={skill.title} description={skill.description} image={skill.image} />
+          ))}
         </SkillRowWrapper>
       </OurSkillsContent>
     </Wrapper>

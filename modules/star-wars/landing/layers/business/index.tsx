@@ -1,35 +1,20 @@
 //hooks
 import React, { useCallback, useState } from 'react';
-//types
-import { Comment } from '@md-shared/types/comment';
-//hooks
-import { useScrollPagination } from '@md-shared/hooks/orbitPagination';
 
 interface Context {
   transform: {
     x: number;
     y: number;
   };
-  handleScroll: (e: React.UIEvent<HTMLElement>) => void;
-  inProjectsPageArea: boolean;
-  positionPagination: string | undefined;
-  initialPage: 'first' | 'second' | 'third';
-  commentsState: Comment[];
   mouseHandler: (e: MouseEvent) => void;
 }
 
 export const LandingBLContext = React.createContext<Context>({
   transform: { x: 0, y: 0 },
-  handleScroll: () => {},
-  inProjectsPageArea: false,
-  positionPagination: '0',
-  initialPage: 'first',
-  commentsState: [],
   mouseHandler: () => {}
 });
 
 const LandingBLContextProvider: React.FC = ({ children }) => {
-  const { handleScroll, inProjectsPageArea, positionPagination, initialPage } = useScrollPagination(8, 1, '127.925px');
   // parallax effect
   const [transform, setTransform] = useState({ x: 0, y: 0 });
 
@@ -43,39 +28,10 @@ const LandingBLContextProvider: React.FC = ({ children }) => {
     }));
   }, []);
 
-  //local comments state
-  const commentsState = [
-    {
-      name: 'Andrew',
-      company: 'ceo huge',
-      image: '',
-      comment:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid aspernatur at dolore dolorem ducimus harum incidunt ipsum nobis, nulla odit, optio perspiciatis praesentium qui quidem similique, soluta vitae. Autem, mollitia?'
-    },
-    {
-      name: 'Egor',
-      company: 'ceo huge',
-      image: '',
-      comment:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aperiam, delectus doloremque ducimus ea explicabo fugit ipsa itaque modi necessitatibus odio quam quidem quisquam quod reiciendis, repellendus repudiandae, sapiente. Aliquid.'
-    },
-    {
-      name: 'Max',
-      company: 'ceo huge',
-      image: '',
-      comment: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
-    }
-  ];
-
   return (
     <LandingBLContext.Provider
       value={{
         transform,
-        handleScroll,
-        inProjectsPageArea,
-        positionPagination,
-        initialPage,
-        commentsState,
         mouseHandler
       }}
     >

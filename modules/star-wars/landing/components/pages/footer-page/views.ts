@@ -10,11 +10,9 @@ export const Wrapper = styled.div`
   overflow: hidden;
   flex-direction: column;
   align-items: center;
-  padding-top: 90px;
   z-index: 1;
   display: flex;
   transform: translateZ(0px);
-
   &:before {
     position: absolute;
     inset: 0px;
@@ -24,7 +22,7 @@ export const Wrapper = styled.div`
 export const MoonContentWrapper = styled.div`
   position: relative;
   min-height: 500px;
-  margin-top: 200px;
+  margin-top: 50vh;
   width: 100%;
   height: 100%;
   padding: 15vh 30px 10px;
@@ -46,10 +44,10 @@ export const MoonContentWrapper = styled.div`
 
 export const BTWrapper = styled.div`
   max-width: 500px;
-  width: 100%;
   z-index: 3;
   text-align: center;
   margin-top: 100px;
+  inset: 0;
 `;
 
 export const AstronautImage = styled.img`

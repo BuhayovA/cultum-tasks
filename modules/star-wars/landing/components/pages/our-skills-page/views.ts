@@ -7,12 +7,16 @@ export const Wrapper = styled.div`
   position: relative;
   padding: 0 10vw 50px 450px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   z-index: 2;
   background: rgb(255, 255, 255);
   @media screen and (max-width: 1000px) {
     flex-direction: column;
     padding: 0 10vw 50px 0px;
+  }
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+    padding: 0px;
   }
 `;
 
@@ -32,18 +36,23 @@ export const OurSkillsContent = styled.div`
   color: rgb(84, 75, 75);
   z-index: 10;
 `;
+export const ButtonWrapper = styled.div`
+  padding: 20px 0 8px 0;
+  margin: 0.67em 0;
+`;
 
 export const Header = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-end;
+  justify-content: space-around;
   @media screen and (max-width: 1000px) {
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 `;
 export const TitleWrapper = styled.div`
-  max-width: 500px;
-  @media screen and (max-width: 600px) {
-    padding: 10vh 0 0 50px;
+  @media screen and (max-width: 1000px) {
     text-align: center;
   }
 `;
@@ -53,16 +62,11 @@ export const SkillRowWrapper = styled.div`
   grid-template-columns: 400px 400px;
 
   @media screen and (max-width: 1300px) {
-    grid-template-columns: 100vh;
-    padding: 10vh 0 0 50px;
-  }
-
-  @media screen and (max-width: 600px) {
-    grid-template-columns: 500px;
+    grid-template-columns: 100%;
     padding: 10vh 0 0 50px;
   }
   @media screen and (max-width: 450px) {
-    grid-template-columns: 400px;
+    grid-template-columns: 100%;
     padding: 10vh 0 0 30px;
   }
 `;

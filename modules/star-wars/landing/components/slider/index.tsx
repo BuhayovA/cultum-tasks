@@ -13,7 +13,8 @@ const sliderSetting = {
   speed: 500,
   slidesToShow: 1,
   slidesToScroll: 1,
-  className: 'slider'
+  className: 'slider',
+  autoplaySpeed: 2000
 };
 
 interface Props {

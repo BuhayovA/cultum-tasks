@@ -16,12 +16,12 @@ const rotate = {
 const OrbitPagination: React.FC<Props> = ({ children, inProjectsPageArea, positionPagination, initialPage }) => {
   return (
     <>
-      <PaginationWrapper position={inProjectsPageArea} positionPagination={positionPagination}>
+      <PaginationWrapper position={inProjectsPageArea ? 'fixed' : 'absolute'} positionPagination={positionPagination}>
         <Image src='/static/images/earth.png' alt='earth' />
 
-        <CheckPoint rotate='45deg'></CheckPoint>
-        <CheckPoint rotate='90deg'></CheckPoint>
-        <CheckPoint rotate='135deg'></CheckPoint>
+        <CheckPoint rotate='45deg' />
+        <CheckPoint rotate='90deg' />
+        <CheckPoint rotate='135deg' />
         <CheckedPoint rotate={rotate[initialPage]} src='/static/images/slider.png' alt='slider' />
       </PaginationWrapper>
       {children}

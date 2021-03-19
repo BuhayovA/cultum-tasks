@@ -5,13 +5,13 @@ export const Wrapper = styled.div`
   max-height: 35px;
   display: flex;
   position: relative;
-  -webkit-box-align: center;
   align-items: center;
   font-size: 12px;
   color: rgb(255, 128, 118);
   cursor: pointer;
   transition: opacity 0.2s ease-in-out 0s;
-  margin-top: 40px;
+  padding-bottom: 20px;
+  margin-top: 60px;
 `;
 export const Image = styled.img`
   width: 50px;
