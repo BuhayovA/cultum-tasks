@@ -1,10 +1,13 @@
-import React from 'react';
+//hooks
+import React, { useRef } from 'react';
+import { useSlider } from '@md-shared/hooks/slider';
+//types
+import { Comment } from '@md-shared/types/comment';
+import Slider from 'react-slick';
+//views
+import ImageButton from '@md-ui/buttons/image-button';
 import CommentCard from '@md-ui/card/comment-card';
 import { ArrowButtonsWrapper, SliderWrapper } from './views';
-import ImageButton from '@md-ui/buttons/image-button';
-import Slider from 'react-slick';
-import { Comment } from '@md-shared/types/comment';
-import { useSlider } from '@md-shared/hooks/slider';
 
 const sliderSetting = {
   dots: false,
@@ -22,7 +25,8 @@ interface Props {
 }
 
 const CommentsSlider: React.FC<Props> = ({ commentsState }) => {
-  const { prevSlide, nextSlide, sliderRef } = useSlider();
+  const sliderRef = useRef(null);
+  const { prevSlide, nextSlide } = useSlider(sliderRef);
 
   return (
     <SliderWrapper>

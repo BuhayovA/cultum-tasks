@@ -1,9 +1,10 @@
 import React from 'react';
-import { Devises, Wrapper, OurSkillsContent, Header, TitleWrapper, SkillRowWrapper, ButtonWrapper } from './views';
+//views
 import SkillCard from '@md-ui/card/main';
 import Title from '@md-ui/titles/main';
 import ImageButton from '@md-ui/buttons/image-button';
 import SkillItem from '@md-ui/card/skill-item';
+import { Devises, Wrapper, OurSkillsContent, Header, TitleWrapper, SkillRowWrapper, ButtonWrapper } from './views';
 
 /*TODO bring the array to the constants file*/
 const SkillsList = [

@@ -1,9 +1,10 @@
 import React from 'react';
-import { SectionWrapper, Wrapper, ProjectsInfoWrapper, Image } from './views';
+//views
 import SubTitle from '@md-ui/sub-title';
 import Description from '@md-ui/description';
 import ProjectsTitle from '@md-ui/titles/projects-title';
 import ImageButton from '@md-ui/buttons/image-button';
+import { SectionWrapper, Wrapper, ProjectsInfoWrapper, Image } from './views';
 
 interface Props {
   title: string;

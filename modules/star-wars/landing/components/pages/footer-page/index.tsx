@@ -1,4 +1,6 @@
+//hooks
 import React, { useMemo } from 'react';
+//views
 import { Wrapper, AstronautImage, MoonContentWrapper, BTWrapper, DescriptionWrapper } from './views';
 import Description from '@md-ui/description';
 import Title from '@md-ui/titles/main';

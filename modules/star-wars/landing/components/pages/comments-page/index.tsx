@@ -1,11 +1,12 @@
 import React from 'react';
+//views
 import { SliderWrapper, TitleWrapper, Wrapper } from './views';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Title from '@md-ui/titles/main';
 
 import CommentsSlider from '@md-star-wars/landing/components/slider';
-
+//local state comments
 const commentsState = [
   {
     name: 'Andrew',

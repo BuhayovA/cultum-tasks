@@ -1,5 +1,6 @@
-import { Wrapper, SubTitleWrapper, Image, BSTWrapper } from './views';
 import React from 'react';
+//views
+import { Wrapper, SubTitleWrapper, Image, BSTWrapper } from './views';
 import SubTitle from '@md-modules/shared/components/ui/sub-title';
 import ImageButton from '@md-ui/buttons/image-button';
 
